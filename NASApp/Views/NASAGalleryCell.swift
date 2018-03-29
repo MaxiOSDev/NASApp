@@ -10,4 +10,11 @@ import UIKit
 
 class NASAGalleryCell: UICollectionViewCell {
     
+    @IBOutlet weak var galleryImageView: UIImageView!
+    @IBOutlet weak var imageNameLabel: UILabel!
+    @IBOutlet weak var imageDetailLabel: UILabel!
+    
+    @IBOutlet weak var planetLogoImageView: UIImageView!
+    @IBOutlet weak var nasaGalleriesLabel: UILabel!
+    
 }

@@ -20,6 +20,11 @@
 		FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98047206D1EB200890F24 /* RoverMakerController.swift */; };
 		FBD9804A206D1F4900890F24 /* EyeInSkyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98049206D1F4900890F24 /* EyeInSkyController.swift */; };
 		FBD9804D206D276400890F24 /* NASAGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9804C206D276400890F24 /* NASAGalleryCell.swift */; };
+		FBD98050206D27CE00890F24 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD9804F206D27CE00890F24 /* MapKit.framework */; };
+		FBD98055206D28E700890F24 /* JSONDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98054206D28E700890F24 /* JSONDownloader.swift */; };
+		FBD98057206D290B00890F24 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98056206D290B00890F24 /* APIError.swift */; };
+		FBD9805A206D317D00890F24 /* GalleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98059206D317D00890F24 /* GalleryDataSource.swift */; };
+		FBD9805C206D353100890F24 /* GalleryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9805B206D353100890F24 /* GalleryHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,11 @@
 		FBD98047206D1EB200890F24 /* RoverMakerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverMakerController.swift; sourceTree = "<group>"; };
 		FBD98049206D1F4900890F24 /* EyeInSkyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeInSkyController.swift; sourceTree = "<group>"; };
 		FBD9804C206D276400890F24 /* NASAGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAGalleryCell.swift; sourceTree = "<group>"; };
+		FBD9804F206D27CE00890F24 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FBD98054206D28E700890F24 /* JSONDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDownloader.swift; sourceTree = "<group>"; };
+		FBD98056206D290B00890F24 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		FBD98059206D317D00890F24 /* GalleryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataSource.swift; sourceTree = "<group>"; };
+		FBD9805B206D353100890F24 /* GalleryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD98050206D27CE00890F24 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +87,7 @@
 				FBD9801C206D1A8E00890F24 /* NASApp */,
 				FBD98033206D1A8F00890F24 /* NASAppTests */,
 				FBD9801B206D1A8E00890F24 /* Products */,
+				FBD9804E206D27CE00890F24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +103,8 @@
 		FBD9801C206D1A8E00890F24 /* NASApp */ = {
 			isa = PBXGroup;
 			children = (
+				FBD98052206D28C200890F24 /* Helpers */,
+				FBD98051206D28BB00890F24 /* Models */,
 				FBD9804B206D272C00890F24 /* Views */,
 				FBD98044206D1DFE00890F24 /* Controllers */,
 				FBD9801D206D1A8E00890F24 /* AppDelegate.swift */,
@@ -128,9 +142,51 @@
 		FBD9804B206D272C00890F24 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FBD9805B206D353100890F24 /* GalleryHeaderView.swift */,
 				FBD9804C206D276400890F24 /* NASAGalleryCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FBD9804E206D27CE00890F24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBD9804F206D27CE00890F24 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBD98051206D28BB00890F24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FBD98058206D315C00890F24 /* CollectionViewModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FBD98052206D28C200890F24 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FBD98053206D28C700890F24 /* Networking */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FBD98053206D28C700890F24 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FBD98054206D28E700890F24 /* JSONDownloader.swift */,
+				FBD98056206D290B00890F24 /* APIError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FBD98058206D315C00890F24 /* CollectionViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FBD98059206D317D00890F24 /* GalleryDataSource.swift */,
+			);
+			path = CollectionViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +240,11 @@
 					FBD98019206D1A8E00890F24 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					FBD9802F206D1A8F00890F24 = {
 						CreatedOnToolsVersion = 9.2;
@@ -239,12 +300,16 @@
 			files = (
 				FBD98046206D1E3700890F24 /* GalleryController.swift in Sources */,
 				FBD9804A206D1F4900890F24 /* EyeInSkyController.swift in Sources */,
+				FBD9805C206D353100890F24 /* GalleryHeaderView.swift in Sources */,
+				FBD9805A206D317D00890F24 /* GalleryDataSource.swift in Sources */,
 				FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */,
+				FBD98057206D290B00890F24 /* APIError.swift in Sources */,
 				FBD9804D206D276400890F24 /* NASAGalleryCell.swift in Sources */,
 				FBD98043206D1BA300890F24 /* CDStack.swift in Sources */,
 				FBD98041206D1B5700890F24 /* CDModel.xcdatamodeld in Sources */,
 				FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */,
 				FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */,
+				FBD98055206D28E700890F24 /* JSONDownloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
