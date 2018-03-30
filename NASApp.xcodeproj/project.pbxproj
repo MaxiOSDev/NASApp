@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2B4914206D5E830037AD8C /* NASAGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4913206D5E830037AD8C /* NASAGallery.swift */; };
+		FB2B4917206D7EDE0037AD8C /* GalleryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */; };
+		FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4918206D81AE0037AD8C /* APIClient.swift */; };
+		FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491A206D8E300037AD8C /* PendingOperations.swift */; };
+		FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */; };
+		FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491E206D90CB0037AD8C /* ImageCache.swift */; };
 		FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9801D206D1A8E00890F24 /* AppDelegate.swift */; };
 		FBD98020206D1A8E00890F24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FBD9801F206D1A8E00890F24 /* art.scnassets */; };
 		FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98021206D1A8E00890F24 /* ARPlanetController.swift */; };
@@ -38,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB2B4913206D5E830037AD8C /* NASAGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAGallery.swift; sourceTree = "<group>"; };
+		FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryEndpoint.swift; sourceTree = "<group>"; };
+		FB2B4918206D81AE0037AD8C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		FB2B491A206D8E300037AD8C /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
+		FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageDownloader.swift; sourceTree = "<group>"; };
+		FB2B491E206D90CB0037AD8C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		FBD9801A206D1A8E00890F24 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD9801D206D1A8E00890F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD9801F206D1A8E00890F24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -81,6 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB2B4912206D5E6C0037AD8C /* CodableModels */ = {
+			isa = PBXGroup;
+			children = (
+				FB2B4913206D5E830037AD8C /* NASAGallery.swift */,
+			);
+			path = CodableModels;
+			sourceTree = "<group>";
+		};
+		FB2B4915206D7EBD0037AD8C /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
 		FBD98011206D1A8D00890F24 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +187,7 @@
 		FBD98051206D28BB00890F24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FB2B4912206D5E6C0037AD8C /* CodableModels */,
 				FBD98058206D315C00890F24 /* CollectionViewModels */,
 			);
 			path = Models;
@@ -175,8 +204,13 @@
 		FBD98053206D28C700890F24 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				FB2B4915206D7EBD0037AD8C /* Endpoint */,
 				FBD98054206D28E700890F24 /* JSONDownloader.swift */,
 				FBD98056206D290B00890F24 /* APIError.swift */,
+				FB2B4918206D81AE0037AD8C /* APIClient.swift */,
+				FB2B491A206D8E300037AD8C /* PendingOperations.swift */,
+				FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */,
+				FB2B491E206D90CB0037AD8C /* ImageCache.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -299,13 +333,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBD98046206D1E3700890F24 /* GalleryController.swift in Sources */,
+				FB2B4917206D7EDE0037AD8C /* GalleryEndpoint.swift in Sources */,
+				FB2B4914206D5E830037AD8C /* NASAGallery.swift in Sources */,
 				FBD9804A206D1F4900890F24 /* EyeInSkyController.swift in Sources */,
 				FBD9805C206D353100890F24 /* GalleryHeaderView.swift in Sources */,
 				FBD9805A206D317D00890F24 /* GalleryDataSource.swift in Sources */,
 				FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */,
 				FBD98057206D290B00890F24 /* APIError.swift in Sources */,
+				FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */,
+				FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */,
 				FBD9804D206D276400890F24 /* NASAGalleryCell.swift in Sources */,
 				FBD98043206D1BA300890F24 /* CDStack.swift in Sources */,
+				FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */,
+				FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */,
 				FBD98041206D1B5700890F24 /* CDModel.xcdatamodeld in Sources */,
 				FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */,
 				FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */,

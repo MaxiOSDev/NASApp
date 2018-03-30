@@ -21,7 +21,7 @@ enum APIError: Error {
         case .requestFailed: return "Request Failed"
         case .jsonConversionFailure: return "JSON Conversion Failure"
         case .invalidData: return "Invalid Data"
-        case .responseUnsuccessful: return "Response Unsuccessfull"
+        case .responseUnsuccessful: return "Response Unsuccessful"
         case .unAuthorized: return "Unauthoried"
         }
     }

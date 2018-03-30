@@ -12,12 +12,62 @@ class GalleryController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let client = NASAClient()
+    var nasaGallery = [NASAGallery]()
+    var galleryImage: NASAGalleryLinks? {
+        
+        didSet {
+            dataSource.update(with: (galleryImage?.links)!)
+            collectionView.reloadData()
+        }
+    }
+    
+    var galleryLinks: NASAGalleryCollection? {
+        didSet {
+            dataSource.updateArray(with: (galleryLinks?.collection.items)!)
+            collectionView.reloadData()
+        }
+    }
+    
     lazy var dataSource: GalleryDatasource = {
-       return GalleryDatasource(collectionView: collectionView)
+        return GalleryDatasource(images: [], links: [], collectionView: collectionView)
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        client.parseCollection(from: .gallery) { result in
+            switch result {
+                
+            case .success(let collectionResult):
+                guard var collectionResults = collectionResult else { return }
+                
+                print(collectionResults.collection.items.count)
+                var linkArray = [NASAGalleryLinks]()
+                
+                for link in collectionResults.collection.items {
+                    for href in link.links {
+                        if href.href?.range(of: ".jpg") != nil {
+                            linkArray.append(link)
+                            print("Yes \(href.href)\n")
+                        } else {
+                            print("No \(href.href)\n")
+                        }
+                    }
+                }
+                
+                collectionResults.collection.items.removeAll()
+                collectionResults.collection.items = linkArray
+                self.galleryLinks = collectionResults
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print("Error for results data \(error)")
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
