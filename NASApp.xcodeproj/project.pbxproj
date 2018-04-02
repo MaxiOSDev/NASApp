@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD58DE9FE44A383BE262DFD5 /* Pods_NASApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864CDCF1F5A8F73931203375 /* Pods_NASApp.framework */; };
+		E3AA871D00EE5111E23AC787 /* Pods_NASAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E1678A9229A2A49F9EAE19 /* Pods_NASAppTests.framework */; };
 		FB2B4914206D5E830037AD8C /* NASAGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4913206D5E830037AD8C /* NASAGallery.swift */; };
 		FB2B4917206D7EDE0037AD8C /* GalleryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */; };
 		FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4918206D81AE0037AD8C /* APIClient.swift */; };
 		FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491A206D8E300037AD8C /* PendingOperations.swift */; };
 		FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */; };
 		FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491E206D90CB0037AD8C /* ImageCache.swift */; };
-		FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4C81C82072976D00A94D73 /* GalleryZoomController.swift */; };
 		FBD4B6022072661F00F9282F /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B6012072661F00F9282F /* Delegates.swift */; };
-		FBD4B60420727BFC00F9282F /* GalleryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B60320727BFC00F9282F /* GalleryPageController.swift */; };
 		FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9801D206D1A8E00890F24 /* AppDelegate.swift */; };
 		FBD98020206D1A8E00890F24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FBD9801F206D1A8E00890F24 /* art.scnassets */; };
 		FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98021206D1A8E00890F24 /* ARPlanetController.swift */; };
@@ -47,15 +47,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17E6056C7918739702402299 /* Pods-NASApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NASApp/Pods-NASApp.release.xcconfig"; sourceTree = "<group>"; };
+		64E1678A9229A2A49F9EAE19 /* Pods_NASAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBC3A675EE4CBEDC65D4CA7 /* Pods-NASAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NASAppTests/Pods-NASAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		864CDCF1F5A8F73931203375 /* Pods_NASApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DA27B31BBCD60DF8AB24B45 /* Pods-NASAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NASAppTests/Pods-NASAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		EB906788C91198C69E86C455 /* Pods-NASApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NASApp/Pods-NASApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2B4913206D5E830037AD8C /* NASAGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAGallery.swift; sourceTree = "<group>"; };
 		FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryEndpoint.swift; sourceTree = "<group>"; };
 		FB2B4918206D81AE0037AD8C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FB2B491A206D8E300037AD8C /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
 		FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageDownloader.swift; sourceTree = "<group>"; };
 		FB2B491E206D90CB0037AD8C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		FB4C81C82072976D00A94D73 /* GalleryZoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryZoomController.swift; sourceTree = "<group>"; };
 		FBD4B6012072661F00F9282F /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
-		FBD4B60320727BFC00F9282F /* GalleryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPageController.swift; sourceTree = "<group>"; };
 		FBD9801A206D1A8E00890F24 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD9801D206D1A8E00890F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD9801F206D1A8E00890F24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBD98050206D27CE00890F24 /* MapKit.framework in Frameworks */,
+				BD58DE9FE44A383BE262DFD5 /* Pods_NASApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,12 +98,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3AA871D00EE5111E23AC787 /* Pods_NASAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A142D548368493DAE1990C90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB906788C91198C69E86C455 /* Pods-NASApp.debug.xcconfig */,
+				17E6056C7918739702402299 /* Pods-NASApp.release.xcconfig */,
+				7CBC3A675EE4CBEDC65D4CA7 /* Pods-NASAppTests.debug.xcconfig */,
+				9DA27B31BBCD60DF8AB24B45 /* Pods-NASAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FB2B4912206D5E6C0037AD8C /* CodableModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,8 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				FBD98045206D1E3700890F24 /* GalleryController.swift */,
-				FBD4B60320727BFC00F9282F /* GalleryPageController.swift */,
-				FB4C81C82072976D00A94D73 /* GalleryZoomController.swift */,
 			);
 			path = GalleryTab;
 			sourceTree = "<group>";
@@ -140,6 +155,7 @@
 				FBD98033206D1A8F00890F24 /* NASAppTests */,
 				FBD9801B206D1A8E00890F24 /* Products */,
 				FBD9804E206D27CE00890F24 /* Frameworks */,
+				A142D548368493DAE1990C90 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				FBD9804F206D27CE00890F24 /* MapKit.framework */,
+				864CDCF1F5A8F73931203375 /* Pods_NASApp.framework */,
+				64E1678A9229A2A49F9EAE19 /* Pods_NASAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -255,9 +273,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBD98039206D1A8F00890F24 /* Build configuration list for PBXNativeTarget "NASApp" */;
 			buildPhases = (
+				52F3274B18A146454F11AFDE /* [CP] Check Pods Manifest.lock */,
 				FBD98016206D1A8E00890F24 /* Sources */,
 				FBD98017206D1A8E00890F24 /* Frameworks */,
 				FBD98018206D1A8E00890F24 /* Resources */,
+				27F4E409F3D33C2FFD387BC5 /* [CP] Embed Pods Frameworks */,
+				7FCB11B106C8D6029EC215F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,9 +293,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBD9803C206D1A8F00890F24 /* Build configuration list for PBXNativeTarget "NASAppTests" */;
 			buildPhases = (
+				D6D97859F0629C82F5CB1C3F /* [CP] Check Pods Manifest.lock */,
 				FBD9802C206D1A8F00890F24 /* Sources */,
 				FBD9802D206D1A8F00890F24 /* Frameworks */,
 				FBD9802E206D1A8F00890F24 /* Resources */,
+				E15021223B7DF5A0D24A3D3B /* [CP] Embed Pods Frameworks */,
+				51A7874D6D7A5542EA36312B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -352,6 +376,108 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27F4E409F3D33C2FFD387BC5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NASApp/Pods-NASApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ImageViewer/ImageViewer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageViewer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NASApp/Pods-NASApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51A7874D6D7A5542EA36312B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NASAppTests/Pods-NASAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52F3274B18A146454F11AFDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NASApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FCB11B106C8D6029EC215F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NASApp/Pods-NASApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6D97859F0629C82F5CB1C3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NASAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E15021223B7DF5A0D24A3D3B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NASAppTests/Pods-NASAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FBD98016206D1A8E00890F24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -369,7 +495,6 @@
 				FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */,
 				FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */,
 				FBD9804D206D276400890F24 /* NASAGalleryCell.swift in Sources */,
-				FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */,
 				FBD98043206D1BA300890F24 /* CDStack.swift in Sources */,
 				FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */,
 				FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */,
@@ -377,7 +502,6 @@
 				FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */,
 				FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */,
 				FBD98055206D28E700890F24 /* JSONDownloader.swift in Sources */,
-				FBD4B60420727BFC00F9282F /* GalleryPageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +652,7 @@
 		};
 		FBD9803A206D1A8F00890F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB906788C91198C69E86C455 /* Pods-NASApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -543,6 +668,7 @@
 		};
 		FBD9803B206D1A8F00890F24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17E6056C7918739702402299 /* Pods-NASApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -558,6 +684,7 @@
 		};
 		FBD9803D206D1A8F00890F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CBC3A675EE4CBEDC65D4CA7 /* Pods-NASAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -575,6 +702,7 @@
 		};
 		FBD9803E206D1A8F00890F24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DA27B31BBCD60DF8AB24B45 /* Pods-NASAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
