@@ -13,6 +13,7 @@
 		FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491A206D8E300037AD8C /* PendingOperations.swift */; };
 		FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */; };
 		FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491E206D90CB0037AD8C /* ImageCache.swift */; };
+		FBD4B6022072661F00F9282F /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B6012072661F00F9282F /* Delegates.swift */; };
 		FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9801D206D1A8E00890F24 /* AppDelegate.swift */; };
 		FBD98020206D1A8E00890F24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FBD9801F206D1A8E00890F24 /* art.scnassets */; };
 		FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98021206D1A8E00890F24 /* ARPlanetController.swift */; };
@@ -50,6 +51,7 @@
 		FB2B491A206D8E300037AD8C /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
 		FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageDownloader.swift; sourceTree = "<group>"; };
 		FB2B491E206D90CB0037AD8C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		FBD4B6012072661F00F9282F /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		FBD9801A206D1A8E00890F24 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD9801D206D1A8E00890F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD9801F206D1A8E00890F24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 				FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */,
 			);
 			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		FBD4B6002072660800F9282F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FBD4B6012072661F00F9282F /* Delegates.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		FBD98011206D1A8D00890F24 = {
@@ -196,6 +206,7 @@
 		FBD98052206D28C200890F24 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FBD4B6002072660800F9282F /* Delegates */,
 				FBD98053206D28C700890F24 /* Networking */,
 			);
 			path = Helpers;
@@ -339,6 +350,7 @@
 				FBD9805C206D353100890F24 /* GalleryHeaderView.swift in Sources */,
 				FBD9805A206D317D00890F24 /* GalleryDataSource.swift in Sources */,
 				FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */,
+				FBD4B6022072661F00F9282F /* Delegates.swift in Sources */,
 				FBD98057206D290B00890F24 /* APIError.swift in Sources */,
 				FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */,
 				FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */,

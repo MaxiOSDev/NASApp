@@ -35,6 +35,7 @@ extension GalleryEndpoint {
         return components
     }
     
+    
     var request: URLRequest {
         let url = urlComponents.url!
         print("URL within GalleryEndpoint: \(url)")
@@ -56,7 +57,9 @@ extension NASADetail: GalleryEndpoint {
     var queryItems: [URLQueryItem] {
         var result = [URLQueryItem]()
         let center = URLQueryItem(name: "center", value: "jpl")
+        //let page = URLQueryItem(name: "page", value: "1")
         result.append(center)
+        //result.append(page)
         return result
     }
 }

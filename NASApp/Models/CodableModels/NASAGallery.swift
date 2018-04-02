@@ -19,15 +19,22 @@ struct NASAGalleryCollection: Codable {
     var collection: Collection
     struct Collection: Codable {
         var version: String
+        var href: String
         var items: [NASAGalleryLinks]
+        var links: [CollectionLink]
     }
+}
+
+struct CollectionLink: Codable {
+    let href: String
+    let prompt: String
 }
 
 struct NASAGalleryLinks: Codable {
 
     var links: [NASAGallery]
     var data: [NASAGalleryData]
-   private enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case links
         case data
     }
@@ -42,6 +49,7 @@ struct NASAGalleryData {
         case secondaryCreator = "secondary_creator"
     }
 }
+
 
 extension NASAGalleryData: Decodable {
     init(from decoder: Decoder) throws {

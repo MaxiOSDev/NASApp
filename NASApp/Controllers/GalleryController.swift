@@ -11,7 +11,7 @@ import UIKit
 class GalleryController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    weak var pageNumberDelegate: PageNumberDelegate?
     let client = NASAClient()
     var nasaGallery = [NASAGallery]()
     var galleryImage: NASAGalleryLinks? {
@@ -51,6 +51,15 @@ class GalleryController: UIViewController {
                             print("Yes \(href.href)\n")
                         } else {
                             print("No \(href.href)\n")
+                        }
+                    }
+                }
+                
+                for link in collectionResults.collection.links {
+                    if link.prompt == "Next" {
+                        if let number = Int(link.href.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
+                           // self.pageNumberDelegate?.getPageNumber(number)
+                            self.dataSource.pageNumber = number
                         }
                     }
                 }

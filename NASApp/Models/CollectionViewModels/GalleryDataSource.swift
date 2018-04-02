@@ -14,13 +14,17 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     private let collectionView: UICollectionView
     private var images: [NASAGallery]
     private var links: [NASAGalleryLinks]
+    let client = NASAClient()
+    
     let pendingOperations = PendingOperations()
+    var pageNumber: Int?
     
     init(images: [NASAGallery], links: [NASAGalleryLinks], collectionView: UICollectionView) {
         self.images = images
         self.collectionView = collectionView
         self.links = links
         super.init()
+        
     }
     
     lazy var downloadQueue: OperationQueue = {
@@ -52,12 +56,13 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
             }
         }
         
-        
-
-        
         if indexPath.row != 0 {
             galleryCell.planetLogoImageView.isHidden = true
             galleryCell.nasaGalleriesLabel.isHidden = true
+        }
+        
+        if indexPath.row == indexPath.last {
+
         }
         
         if let downloader = galleryCell.imageDownloader {
@@ -122,7 +127,52 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
         
         return CGSize(width: screenWidth/2, height: screenWidth/3)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == links.count - 1 {
+            if let number = pageNumber {
+                client.parsePagedCollectionWithPageNumber(number) { result in
+                    switch result {
+                    case .success(let galleryResults):
+                        guard let galleryResult = galleryResults else { return }
+                        var linkArray = [NASAGalleryLinks]()
+                        
+                        for link in galleryResult.collection.items {
+                            for href in link.links {
+                                if href.href?.range(of: ".jpg") != nil {
+                                    linkArray.append(link)
+                                    print("Yes \(href.href)\n")
+                                } else {
+                                    print("No \(href.href)\n")
+                                }
+                            }
+                        }
+                        
+                        for link in galleryResult.collection.links {
+                            if link.prompt == "Next" {
+                                if let number = Int(link.href.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
+                                    // self.pageNumberDelegate?.getPageNumber(number)
+                                    self.pageNumber = number
+                                }
+                            }
+                        }
+                        self.links.append(contentsOf: linkArray)
+                        collectionView.reloadData()
+                    case .failure(let error):
+                        print("Encountered error: \(error)")
+                    }
+                }
+            }
+        }
+    }
 
+}
+
+extension GalleryDatasource: PageNumberDelegate {
+    func getPageNumber(_ number: Int?) {
+        pageNumber = number
+        print("Page Number from delegate: \(pageNumber)")
+    }
 }
 
 

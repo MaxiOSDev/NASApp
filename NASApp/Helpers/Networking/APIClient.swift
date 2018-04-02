@@ -21,8 +21,9 @@ class NASAClient: APIClientProtocol {
     
     func parseCollection(from galleryFeedType: NASADetail, completion: @escaping (Result<NASAGalleryCollection?, APIError>) -> Void) {
         let endpoint = galleryFeedType
+        print("Endpoint: \(endpoint.path) query Items: \(endpoint.queryItems)")
         let request = endpoint.request
-        
+        print("Request: \(request)")
         DispatchQueue.main.async {
             self.fetch(with: request, decode: { (json) -> NASAGalleryCollection? in
                 print("JSON \(json)")
@@ -31,22 +32,22 @@ class NASAClient: APIClientProtocol {
                 }
                 
                 print(galleryFeedResult)
+                
                 return galleryFeedResult
             }, completion: completion)
         }
     }
     
-    func retrieveGallery(from galleryFeedType: NASADetail, completion: @escaping (Result<NASAGalleryLinks?, APIError>) -> Void) {
-        let endpoint = galleryFeedType
-        let request = endpoint.request
-        
+    func parsePagedCollectionWithPageNumber(_ number: Int, completion: @escaping (Result<NASAGalleryCollection?, APIError>) -> Void) {
+        let url = URL(string: "https://images-api.nasa.gov/search?center=jpl&page=\(number)")
+        let request = URLRequest(url: url!)
         DispatchQueue.main.async {
-            self.fetch(with: request, decode: { (json) -> NASAGalleryLinks? in
+            self.fetch(with: request, decode: { (json) -> NASAGalleryCollection? in
                 print("JSON \(json)")
-                guard let galleryFeedResult = json as? NASAGalleryLinks else {
+                guard let galleryFeedResult = json as? NASAGalleryCollection else {
                     return nil
                 }
-                print(galleryFeedResult)
+                
                 return galleryFeedResult
             }, completion: completion)
         }
