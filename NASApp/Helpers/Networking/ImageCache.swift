@@ -13,11 +13,13 @@ class ImageCache {
     static let shared = ImageCache()
     private var imageCache = [String: UIImage]()
     private var queue = DispatchQueue(label: "com.ramirezmax.nasapp.imagecache")
-    
+    var downloadedImages = [UIImage]()
     func add(with imageName: String, image: UIImage) {
         let workItem = DispatchWorkItem(qos: .default, flags: .barrier) {
             self.imageCache[imageName] = image
-            print("Image HERE in chache add: \(image)")
+            print("Image Here 2: \(image)")
+            self.downloadedImages.append(image)
+            print(self.downloadedImages.count)
         }
         queue.async(execute: workItem)
     }

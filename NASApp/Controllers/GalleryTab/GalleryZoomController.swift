@@ -24,6 +24,7 @@ class GalleryZoomController: UIViewController {
         print("Photo that is in GalleryZoomController: \(photo)")
         
         // Do any additional setup after loading the view.
+        photoImageView.image = image
     }
 
     override func didReceiveMemoryWarning() {

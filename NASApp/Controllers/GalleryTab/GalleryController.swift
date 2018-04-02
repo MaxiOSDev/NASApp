@@ -100,8 +100,15 @@ class GalleryController: UIViewController {
 //                for galleryLink in dataSource.links {
 //                    pageViewController.photoLinks = galleryLink.links
 //                }
+                
                 pageViewController.photoLinks = (galleryLinks?.collection.items)!
                 pageViewController.indexOfCurrentPhoto = indexPath.row
+                for (index, element) in dataSource.downloadedImages.enumerated() {
+                    print("Item \(index): \(element)")
+                    if indexPath.row == index {
+                        pageViewController.image = element
+                    }
+                }
             }
         }
     }

@@ -50,7 +50,6 @@ struct NASAGalleryData {
     }
 }
 
-
 extension NASAGalleryData: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

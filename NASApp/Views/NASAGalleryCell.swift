@@ -23,6 +23,7 @@ extension GalleryCellViewModel {
     
     init(link: NASAGalleryLinks, gallery: NASAGallery, data: NASAGalleryData) {
         self.galleryImage = gallery.galleryState == .downloaded ? gallery.image! : #imageLiteral(resourceName: "nasaLogo")
+        
         self.label = data.photographer ?? ""
         self.detailLabel = data.secondaryCreator ?? ""
     }
@@ -39,13 +40,14 @@ class NASAGalleryCell: UICollectionViewCell {
     
     var imageDownloader: GalleryDownloader?
     var images: NASAGallery?
-    
+
     func configure(with viewModel: GalleryCellViewModel) {
         if let imagePath = images?.href {
             if let image = ImageCache.shared.get(with: imagePath) {
                 print("cached image loaded")
                 
                 self.galleryImageView.image = image
+                print("Image Here 1: \(image)")
                 
             } else {
                 configureImageDownloader(for: images!)
@@ -67,6 +69,7 @@ class NASAGalleryCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 if let cacheImage = image.href {
                     self.galleryImageView.image = ImageCache.shared.get(with: cacheImage)
+
                 }
             }
         }

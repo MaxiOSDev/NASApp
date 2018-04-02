@@ -13,6 +13,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     
     private let collectionView: UICollectionView
     private var images: [NASAGallery]
+    var downloadedImages = [UIImage]()
     var links: [NASAGalleryLinks]
     let client = NASAClient()
     
@@ -53,16 +54,16 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
              let viewModel = GalleryCellViewModel(link: image, gallery: gallery , data: data) //GalleryCellViewModel(image: image)
                 galleryCell.configure(with: viewModel)
                 galleryCell.configureImageDownloader(for: gallery)
+                print("Gallery Image: \(viewModel.galleryImage)")
+                
+                downloadedImages.append(contentsOf: ImageCache.shared.downloadedImages)
+                print("DownloadedImages in dataSource \(downloadedImages)")
             }
         }
         
         if indexPath.row != 0 {
             galleryCell.planetLogoImageView.isHidden = true
             galleryCell.nasaGalleriesLabel.isHidden = true
-        }
-        
-        if indexPath.row == indexPath.last {
-
         }
         
         if let downloader = galleryCell.imageDownloader {
@@ -129,7 +130,7 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == links.count - 1 {
+        if indexPath.row == links.count - 2 {
             if let number = pageNumber {
                 client.parsePagedCollectionWithPageNumber(number) { result in
                     switch result {

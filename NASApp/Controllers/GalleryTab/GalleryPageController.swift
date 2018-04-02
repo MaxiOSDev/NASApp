@@ -12,7 +12,7 @@ class GalleryPageController: UIPageViewController {
     
     var photoLinks: [NASAGalleryLinks] = []
     var indexOfCurrentPhoto: Int!
-    
+    var image: UIImage!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
@@ -33,6 +33,7 @@ class GalleryPageController: UIPageViewController {
     func photoViewerController(with galleryPhoto: NASAGalleryLinks) -> GalleryZoomController? {
         guard let storyboard = storyboard, let zoomViewerController = storyboard.instantiateViewController(withIdentifier: "GalleryZoomController") as? GalleryZoomController else { return nil }
         zoomViewerController.photo = galleryPhoto
+        zoomViewerController.image = image
         return zoomViewerController
     }
 
