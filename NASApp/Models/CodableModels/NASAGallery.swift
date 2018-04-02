@@ -68,6 +68,7 @@ extension NASAGalleryData: Encodable {
 }
 
 struct NASAGallery {
+
     var href: String?
     var image: UIImage?
     var data: NASAGalleryData?

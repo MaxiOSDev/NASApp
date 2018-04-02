@@ -17,6 +17,7 @@ class ImageCache {
     func add(with imageName: String, image: UIImage) {
         let workItem = DispatchWorkItem(qos: .default, flags: .barrier) {
             self.imageCache[imageName] = image
+            print("Image HERE in chache add: \(image)")
         }
         queue.async(execute: workItem)
     }

@@ -129,6 +129,7 @@
                                             <outlet property="imageNameLabel" destination="jyO-e2-jGS" id="K80-Vf-kgT"/>
                                             <outlet property="nasaGalleriesLabel" destination="8dl-XR-uSI" id="nPQ-UJ-mcc"/>
                                             <outlet property="planetLogoImageView" destination="R6s-bV-jTS" id="dH2-hg-xMw"/>
+                                            <segue destination="0C8-Y7-qzk" kind="show" identifier="showPhoto" id="blI-5z-K8f"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -151,6 +152,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rc-gU-wtN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1908.59375" y="-795.1171875"/>
+        </scene>
+        <!--Gallery Page Controller-->
+        <scene sceneID="xai-zB-FHO">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="0C8-Y7-qzk" customClass="GalleryPageController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3PN-de-pVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1170" y="-1514"/>
+        </scene>
+        <!--Gallery Zoom Controller-->
+        <scene sceneID="d67-UW-4tM">
+            <objects>
+                <viewController storyboardIdentifier="GalleryZoomController" id="LZt-xF-4Pd" customClass="GalleryZoomController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oAU-S4-F7Q">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tah-bo-vYy">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1S3-4G-2o9">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1S3-4G-2o9" firstAttribute="centerX" secondItem="tah-bo-vYy" secondAttribute="centerX" id="4Pb-Lw-DQ7"/>
+                                    <constraint firstAttribute="bottom" secondItem="1S3-4G-2o9" secondAttribute="bottom" id="4kc-Kk-vQO"/>
+                                    <constraint firstItem="1S3-4G-2o9" firstAttribute="centerY" secondItem="tah-bo-vYy" secondAttribute="centerY" id="g1w-R5-nf3"/>
+                                    <constraint firstAttribute="trailing" secondItem="1S3-4G-2o9" secondAttribute="trailing" id="hUs-wY-VLs"/>
+                                    <constraint firstItem="1S3-4G-2o9" firstAttribute="top" secondItem="tah-bo-vYy" secondAttribute="top" id="okc-7Z-cYJ"/>
+                                    <constraint firstItem="1S3-4G-2o9" firstAttribute="leading" secondItem="tah-bo-vYy" secondAttribute="leading" id="vab-cv-jTZ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tah-bo-vYy" secondAttribute="trailing" id="ENA-Za-efj"/>
+                            <constraint firstItem="tah-bo-vYy" firstAttribute="leading" secondItem="oAU-S4-F7Q" secondAttribute="leading" id="cJI-E5-PBf"/>
+                            <constraint firstItem="tah-bo-vYy" firstAttribute="top" secondItem="cmZ-sW-F1u" secondAttribute="top" id="cgR-w9-lnF"/>
+                            <constraint firstItem="cmZ-sW-F1u" firstAttribute="bottom" secondItem="tah-bo-vYy" secondAttribute="bottom" id="ebb-Qi-v3v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cmZ-sW-F1u"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageViewBottomConstraint" destination="4kc-Kk-vQO" id="cGF-cc-DVl"/>
+                        <outlet property="imageViewLeadingConstraint" destination="vab-cv-jTZ" id="JTU-KV-gDu"/>
+                        <outlet property="imageViewTopConstraint" destination="okc-7Z-cYJ" id="HQ5-eH-4fZ"/>
+                        <outlet property="imageViewTrailingConstraint" destination="hUs-wY-VLs" id="AJi-U1-IN3"/>
+                        <outlet property="photoImageView" destination="1S3-4G-2o9" id="65s-S9-hs3"/>
+                        <outlet property="scrollView" destination="tah-bo-vYy" id="gpl-nv-geK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="603-bn-Hsg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-508.59375" y="-1514.0625"/>
         </scene>
         <!--Rover-->
         <scene sceneID="ige-oR-arv">

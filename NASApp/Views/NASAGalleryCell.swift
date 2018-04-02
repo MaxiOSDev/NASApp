@@ -46,6 +46,7 @@ class NASAGalleryCell: UICollectionViewCell {
                 print("cached image loaded")
                 
                 self.galleryImageView.image = image
+                
             } else {
                 configureImageDownloader(for: images!)
             }
@@ -57,6 +58,7 @@ class NASAGalleryCell: UICollectionViewCell {
     
     func configureImageDownloader(for image: NASAGallery) {
         let downloader = GalleryDownloader(image: image)
+        
         downloader.completionBlock = {
             if downloader.isCancelled {
                 return

@@ -13,7 +13,8 @@ class GalleryController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     weak var pageNumberDelegate: PageNumberDelegate?
     let client = NASAClient()
-    var nasaGallery = [NASAGallery]()
+   // var nasaGallery = [NASAGallery]()
+    
     var galleryImage: NASAGalleryLinks? {
         
         didSet {
@@ -54,7 +55,7 @@ class GalleryController: UIViewController {
                         }
                     }
                 }
-                
+
                 for link in collectionResults.collection.links {
                     if link.prompt == "Next" {
                         if let number = Int(link.href.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
@@ -93,4 +94,30 @@ class GalleryController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPhoto" {
+            if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell), let pageViewController = segue.destination as? GalleryPageController {
+//                for galleryLink in dataSource.links {
+//                    pageViewController.photoLinks = galleryLink.links
+//                }
+                pageViewController.photoLinks = (galleryLinks?.collection.items)!
+                pageViewController.indexOfCurrentPhoto = indexPath.row
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

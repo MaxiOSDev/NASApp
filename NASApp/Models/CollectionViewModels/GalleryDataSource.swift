@@ -13,7 +13,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     
     private let collectionView: UICollectionView
     private var images: [NASAGallery]
-    private var links: [NASAGalleryLinks]
+    var links: [NASAGalleryLinks]
     let client = NASAClient()
     
     let pendingOperations = PendingOperations()
@@ -156,6 +156,7 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
                                 }
                             }
                         }
+                        
                         self.links.append(contentsOf: linkArray)
                         collectionView.reloadData()
                     case .failure(let error):

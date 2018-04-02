@@ -13,7 +13,9 @@
 		FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491A206D8E300037AD8C /* PendingOperations.swift */; };
 		FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */; };
 		FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491E206D90CB0037AD8C /* ImageCache.swift */; };
+		FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4C81C82072976D00A94D73 /* GalleryZoomController.swift */; };
 		FBD4B6022072661F00F9282F /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B6012072661F00F9282F /* Delegates.swift */; };
+		FBD4B60420727BFC00F9282F /* GalleryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B60320727BFC00F9282F /* GalleryPageController.swift */; };
 		FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9801D206D1A8E00890F24 /* AppDelegate.swift */; };
 		FBD98020206D1A8E00890F24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FBD9801F206D1A8E00890F24 /* art.scnassets */; };
 		FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98021206D1A8E00890F24 /* ARPlanetController.swift */; };
@@ -51,7 +53,9 @@
 		FB2B491A206D8E300037AD8C /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
 		FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageDownloader.swift; sourceTree = "<group>"; };
 		FB2B491E206D90CB0037AD8C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		FB4C81C82072976D00A94D73 /* GalleryZoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryZoomController.swift; sourceTree = "<group>"; };
 		FBD4B6012072661F00F9282F /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
+		FBD4B60320727BFC00F9282F /* GalleryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPageController.swift; sourceTree = "<group>"; };
 		FBD9801A206D1A8E00890F24 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD9801D206D1A8E00890F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD9801F206D1A8E00890F24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -109,6 +113,16 @@
 				FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */,
 			);
 			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		FB4C81CA2072977600A94D73 /* GalleryTab */ = {
+			isa = PBXGroup;
+			children = (
+				FBD98045206D1E3700890F24 /* GalleryController.swift */,
+				FBD4B60320727BFC00F9282F /* GalleryPageController.swift */,
+				FB4C81C82072976D00A94D73 /* GalleryZoomController.swift */,
+			);
+			path = GalleryTab;
 			sourceTree = "<group>";
 		};
 		FBD4B6002072660800F9282F /* Delegates */ = {
@@ -169,7 +183,7 @@
 		FBD98044206D1DFE00890F24 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FBD98045206D1E3700890F24 /* GalleryController.swift */,
+				FB4C81CA2072977600A94D73 /* GalleryTab */,
 				FBD98047206D1EB200890F24 /* RoverMakerController.swift */,
 				FBD98049206D1F4900890F24 /* EyeInSkyController.swift */,
 				FBD98021206D1A8E00890F24 /* ARPlanetController.swift */,
@@ -355,6 +369,7 @@
 				FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */,
 				FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */,
 				FBD9804D206D276400890F24 /* NASAGalleryCell.swift in Sources */,
+				FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */,
 				FBD98043206D1BA300890F24 /* CDStack.swift in Sources */,
 				FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */,
 				FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */,
@@ -362,6 +377,7 @@
 				FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */,
 				FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */,
 				FBD98055206D28E700890F24 /* JSONDownloader.swift in Sources */,
+				FBD4B60420727BFC00F9282F /* GalleryPageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
