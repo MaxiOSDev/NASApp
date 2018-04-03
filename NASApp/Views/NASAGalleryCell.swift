@@ -15,12 +15,7 @@ struct GalleryCellViewModel {
 }
 
 extension GalleryCellViewModel {
-//    init(image: NASAGallery) {
-//        self.galleryImage = image.galleryState == .downloaded ? image.image! : #imageLiteral(resourceName: "nasaLogo")
-//        self.label = image.data?.photographer ?? ""
-//        self.detailLabel = image.data?.secondaryCreator ?? ""
-//    }
-    
+
     init(link: NASAGalleryLinks, gallery: NASAGallery, data: NASAGalleryData) {
         self.galleryImage = gallery.galleryState == .downloaded ? gallery.image! : #imageLiteral(resourceName: "nasaLogo")
         
@@ -69,7 +64,8 @@ class NASAGalleryCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 if let cacheImage = image.href {
                     self.galleryImageView.image = ImageCache.shared.get(with: cacheImage)
-
+                    
+                    
                 }
             }
         }

@@ -30,7 +30,15 @@ struct CollectionLink: Codable {
     let prompt: String
 }
 
-struct NASAGalleryLinks: Codable {
+struct NASAGalleryLinks: Codable, Hashable {
+    
+    var hashValue: Int {
+        return links.count.hashValue + data.count.hashValue
+    }
+    
+    static func ==(lhs: NASAGalleryLinks, rhs: NASAGalleryLinks) -> Bool {
+        return (lhs.data == rhs.data && lhs.links == rhs.links)
+    }
 
     var links: [NASAGallery]
     var data: [NASAGalleryData]
@@ -40,7 +48,11 @@ struct NASAGalleryLinks: Codable {
     }
 }
 
-struct NASAGalleryData {
+struct NASAGalleryData: Equatable {
+    static func ==(lhs: NASAGalleryData, rhs: NASAGalleryData) -> Bool {
+        return lhs.photographer == rhs.photographer && lhs.secondaryCreator == rhs.secondaryCreator
+    }
+    
     var photographer: String?
     var secondaryCreator: String?
     
@@ -66,8 +78,11 @@ extension NASAGalleryData: Encodable {
     }
 }
 
-struct NASAGallery {
-
+struct NASAGallery: Equatable {
+    static func ==(lhs: NASAGallery, rhs: NASAGallery) -> Bool {
+        return lhs.data == rhs.data && lhs.image == rhs.image && lhs.href == rhs.href && lhs.galleryState == rhs.galleryState
+    }
+    
     var href: String?
     var image: UIImage?
     var data: NASAGalleryData?
@@ -90,6 +105,7 @@ extension NASAGallery: Encodable {
         try container.encode(href, forKey: .href)
     }
 }
+
 
 
 

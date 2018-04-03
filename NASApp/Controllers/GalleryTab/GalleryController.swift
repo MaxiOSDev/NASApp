@@ -34,8 +34,8 @@ class GalleryController: UIViewController {
         return GalleryDatasource(images: [], links: [], collectionView: collectionView)
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         client.parseCollection(from: .gallery) { result in
             switch result {
                 
@@ -55,11 +55,11 @@ class GalleryController: UIViewController {
                         }
                     }
                 }
-
+                
                 for link in collectionResults.collection.links {
                     if link.prompt == "Next" {
                         if let number = Int(link.href.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
-                           // self.pageNumberDelegate?.getPageNumber(number)
+                            // self.pageNumberDelegate?.getPageNumber(number)
                             self.dataSource.pageNumber = number
                         }
                     }
@@ -73,11 +73,6 @@ class GalleryController: UIViewController {
                 print("Error for results data \(error)")
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -97,18 +92,9 @@ class GalleryController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPhoto" {
             if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell), let pageViewController = segue.destination as? GalleryPageController {
-//                for galleryLink in dataSource.links {
-//                    pageViewController.photoLinks = galleryLink.links
-//                }
                 
                 pageViewController.photoLinks = (galleryLinks?.collection.items)!
                 pageViewController.indexOfCurrentPhoto = indexPath.row
-                for (index, element) in dataSource.downloadedImages.enumerated() {
-                    print("Item \(index): \(element)")
-                    if indexPath.row == index {
-                        pageViewController.image = element
-                    }
-                }
             }
         }
     }

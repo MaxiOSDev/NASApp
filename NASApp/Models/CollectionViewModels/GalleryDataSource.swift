@@ -54,10 +54,10 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
              let viewModel = GalleryCellViewModel(link: image, gallery: gallery , data: data) //GalleryCellViewModel(image: image)
                 galleryCell.configure(with: viewModel)
                 galleryCell.configureImageDownloader(for: gallery)
-                print("Gallery Image: \(viewModel.galleryImage)")
+                //print("Gallery Image: \(viewModel.galleryImage)") // It is the placeholder
                 
                 downloadedImages.append(contentsOf: ImageCache.shared.downloadedImages)
-                print("DownloadedImages in dataSource \(downloadedImages)")
+                //print("DownloadedImages in dataSource \(downloadedImages)")
             }
         }
         

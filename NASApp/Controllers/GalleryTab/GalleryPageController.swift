@@ -33,7 +33,7 @@ class GalleryPageController: UIPageViewController {
     func photoViewerController(with galleryPhoto: NASAGalleryLinks) -> GalleryZoomController? {
         guard let storyboard = storyboard, let zoomViewerController = storyboard.instantiateViewController(withIdentifier: "GalleryZoomController") as? GalleryZoomController else { return nil }
         zoomViewerController.photo = galleryPhoto
-        zoomViewerController.image = image
+
         return zoomViewerController
     }
 
@@ -41,21 +41,22 @@ class GalleryPageController: UIPageViewController {
 
 extension GalleryPageController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-       // guard let zoomVC = viewController as? GalleryZoomController else { return nil }
-        if indexOfCurrentPhoto == photoLinks.startIndex {
+       guard let zoomVC = viewController as? GalleryZoomController, let index = photoLinks.index(of: zoomVC.photo) else { return nil }
+        if index == photoLinks.startIndex {
             return nil
         } else {
-            let indexBefore = photoLinks.index(before: indexOfCurrentPhoto)
+            let indexBefore = photoLinks.index(before: index)
             let photo = photoLinks[indexBefore]
             return photoViewerController(with: photo)
         }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if indexOfCurrentPhoto == photoLinks.index(before: photoLinks.endIndex) {
+        guard let zoomVC = viewController as? GalleryZoomController, let index = photoLinks.index(of: zoomVC.photo) else { return nil }
+        if index == photoLinks.index(before: photoLinks.endIndex) {
             return nil
         } else {
-            let indexAfter = photoLinks.index(after: indexOfCurrentPhoto)
+            let indexAfter = photoLinks.index(after: index)
             let photo = photoLinks[indexAfter]
             return photoViewerController(with: photo)
         }

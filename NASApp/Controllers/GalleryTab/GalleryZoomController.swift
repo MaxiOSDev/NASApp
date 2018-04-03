@@ -24,7 +24,10 @@ class GalleryZoomController: UIViewController {
         print("Photo that is in GalleryZoomController: \(photo)")
         
         // Do any additional setup after loading the view.
-        photoImageView.image = image
+        for link in photo.links {
+            print("Inside Zoom for loop: \(link.href) \(link.data) \(link.galleryState) \(link.image)")
+            photoImageView.image = link.image
+        }
     }
 
     override func didReceiveMemoryWarning() {

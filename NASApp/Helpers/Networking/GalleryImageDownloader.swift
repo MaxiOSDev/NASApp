@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class GalleryDownloader: Operation {
-    var image: NASAGallery
+    var galleryImage: NASAGallery
     
     init(image: NASAGallery) {
-        self.image = image
+        self.galleryImage = image
         super.init()
     }
     
@@ -22,9 +22,7 @@ class GalleryDownloader: Operation {
             return
         }
         
-        
-        
-        if let imagePath = image.href {
+        if let imagePath = galleryImage.href {
             if let url = URL(string: imagePath) {
                 let imageData = try? Data(contentsOf: url)
                 if self.isCancelled {
@@ -35,6 +33,7 @@ class GalleryDownloader: Operation {
                     let image = UIImage(data: data)
                     if let image = image {
                       ImageCache.shared.add(with: imagePath, image: image)
+                        
                     }
                     
                 } else {
