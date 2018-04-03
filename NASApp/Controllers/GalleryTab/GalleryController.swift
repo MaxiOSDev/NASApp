@@ -59,7 +59,6 @@ class GalleryController: UIViewController {
                 for link in collectionResults.collection.links {
                     if link.prompt == "Next" {
                         if let number = Int(link.href.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
-                            // self.pageNumberDelegate?.getPageNumber(number)
                             self.dataSource.pageNumber = number
                         }
                     }
