@@ -14,9 +14,6 @@
 		FB2B4914206D5E830037AD8C /* NASAGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4913206D5E830037AD8C /* NASAGallery.swift */; };
 		FB2B4917206D7EDE0037AD8C /* GalleryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */; };
 		FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B4918206D81AE0037AD8C /* APIClient.swift */; };
-		FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491A206D8E300037AD8C /* PendingOperations.swift */; };
-		FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */; };
-		FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B491E206D90CB0037AD8C /* ImageCache.swift */; };
 		FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4C81C82072976D00A94D73 /* GalleryZoomController.swift */; };
 		FBD4B6022072661F00F9282F /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B6012072661F00F9282F /* Delegates.swift */; };
 		FBD4B60420727BFC00F9282F /* GalleryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B60320727BFC00F9282F /* GalleryPageController.swift */; };
@@ -64,9 +61,6 @@
 		FB2B4913206D5E830037AD8C /* NASAGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAGallery.swift; sourceTree = "<group>"; };
 		FB2B4916206D7EDE0037AD8C /* GalleryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryEndpoint.swift; sourceTree = "<group>"; };
 		FB2B4918206D81AE0037AD8C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		FB2B491A206D8E300037AD8C /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
-		FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageDownloader.swift; sourceTree = "<group>"; };
-		FB2B491E206D90CB0037AD8C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		FB4C81C82072976D00A94D73 /* GalleryZoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryZoomController.swift; sourceTree = "<group>"; };
 		FBD4B6012072661F00F9282F /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		FBD4B60320727BFC00F9282F /* GalleryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPageController.swift; sourceTree = "<group>"; };
@@ -258,9 +252,6 @@
 				FBD98054206D28E700890F24 /* JSONDownloader.swift */,
 				FBD98056206D290B00890F24 /* APIError.swift */,
 				FB2B4918206D81AE0037AD8C /* APIClient.swift */,
-				FB2B491A206D8E300037AD8C /* PendingOperations.swift */,
-				FB2B491C206D8E740037AD8C /* GalleryImageDownloader.swift */,
-				FB2B491E206D90CB0037AD8C /* ImageCache.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -510,13 +501,10 @@
 				FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */,
 				FBD4B6022072661F00F9282F /* Delegates.swift in Sources */,
 				FBD98057206D290B00890F24 /* APIError.swift in Sources */,
-				FB2B491D206D8E740037AD8C /* GalleryImageDownloader.swift in Sources */,
 				FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */,
 				FBD9804D206D276400890F24 /* NASAGalleryCell.swift in Sources */,
 				FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */,
 				FBD98043206D1BA300890F24 /* CDStack.swift in Sources */,
-				FB2B491F206D90CB0037AD8C /* ImageCache.swift in Sources */,
-				FB2B491B206D8E300037AD8C /* PendingOperations.swift in Sources */,
 				FBD98041206D1B5700890F24 /* CDModel.xcdatamodeld in Sources */,
 				FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */,
 				FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */,

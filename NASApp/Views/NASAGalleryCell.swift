@@ -34,49 +34,12 @@ class NASAGalleryCell: UICollectionViewCell {
     @IBOutlet weak var planetLogoImageView: UIImageView!
     @IBOutlet weak var nasaGalleriesLabel: UILabel!
     
-    var imageDownloader: GalleryDownloader?
     var images: NASAGallery?
-   
 
     func configure(with viewModel: GalleryCellViewModel) {
-        if let imagePath = images?.href {
-            if let image = ImageCache.shared.get(with: imagePath) {
-                print("cached image loaded")
-                
-              //  self.galleryImageView.image = image
-                print("Image Here 1: \(image)")
-                
-            } else {
-                configureImageDownloader(for: images!)
-            }
-        }
-        
         imageNameLabel.text = viewModel.label
         imageDetailLabel.text = viewModel.detailLabel
     }
-    
-    func configureImageDownloader(for image: NASAGallery) {
-        let downloader = GalleryDownloader(image: image)
-        
-        downloader.completionBlock = {
-            if downloader.isCancelled {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                if let cacheImage = image.href {
-                    //self.galleryImageView.image = ImageCache.shared.get(with: cacheImage)
-                    
-                    
-                }
-            }
-        }
-        
-        self.imageDownloader = downloader
-    }
-    
-
-    
 }
 
 

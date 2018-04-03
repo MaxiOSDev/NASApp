@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class GalleryZoomController: UIViewController {
     
@@ -19,14 +20,15 @@ class GalleryZoomController: UIViewController {
     
     var photo: NASAGalleryLinks!
     var image: UIImage!
+    var nukeManager = Nuke.Manager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Photo that is in GalleryZoomController: \(photo)")
         
         // Do any additional setup after loading the view.
         for link in photo.links {
-         //   print("Inside Zoom for loop: \(link.href) \(link.data) \(link.galleryState) \(link.image)")
-            photoImageView.image = link.image
+            let request = Request(url: URL(string: link.href!)!)
+            nukeManager.loadImage(with: request, into: photoImageView)
         }
     }
 

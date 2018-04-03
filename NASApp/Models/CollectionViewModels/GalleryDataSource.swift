@@ -14,13 +14,12 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     
     private let collectionView: UICollectionView
     private var images: [NASAGallery]
-
     var links: [NASAGalleryLinks]
     let client = NASAClient()
     let nukeManager = Nuke.Manager.shared
-    let pendingOperations = PendingOperations()
     var pageNumber: Int?
     var photos = [URL]()
+    
     init(images: [NASAGallery], links: [NASAGalleryLinks], collectionView: UICollectionView) {
         self.images = images
         self.collectionView = collectionView
@@ -28,13 +27,6 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
         super.init()
         
     }
-    
-    lazy var downloadQueue: OperationQueue = {
-        var queue = OperationQueue()
-        queue.name = "Image Downloader Queue"
-        queue.maxConcurrentOperationCount = 1
-        return queue
-    }()
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -51,23 +43,19 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
         
         for gallery in image.links {
             photos.append(URL(string: gallery.href!)!)
-            print("URLS HERE \(photos)")
+            //print("URLS HERE \(photos)")
             for data in image.data {
              let viewModel = GalleryCellViewModel(link: image, gallery: gallery , data: data) //GalleryCellViewModel(image: image)
                 galleryCell.configure(with: viewModel)
-                galleryCell.configureImageDownloader(for: gallery)
                 let request = makeRequest(with: photos[indexPath.row])
                 nukeManager.loadImage(with: request, into: galleryCell.galleryImageView)
+                
             }
         }
         
         if indexPath.row != 0 {
             galleryCell.planetLogoImageView.isHidden = true
             galleryCell.nasaGalleriesLabel.isHidden = true
-        }
-        
-        if let downloader = galleryCell.imageDownloader {
-            downloadQueue.addOperation(downloader)
         }
         
         return galleryCell
@@ -89,37 +77,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     func makeRequest(with url: URL) -> Request {
         return Request(url: url)
     }
-    
-    func downloaderImageForGalleryImage(_ image: NASAGallery, atIndexPAth indexPath: IndexPath) {
-        if let _ = pendingOperations.downloadsInProgress[indexPath] {
-            return
-        }
-        
-        let downloader = GalleryDownloader(image: image)
-        downloader.completionBlock = {
-            if downloader.isCancelled {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
-                self.collectionView.reloadItems(at: [indexPath])
-            }
-        }
-        pendingOperations.downloadsInProgress[indexPath] = downloader
-        pendingOperations.downloadQueue.addOperation(downloader)
-    }
-    
-    func loadGalleryImages() {
-        DispatchQueue.global().async {
-            NASAClient.loadImagesAsync(from: nil, completion: { (results) in
-                self.images = results
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            })
-        }
-    }
+
 }
 
 extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

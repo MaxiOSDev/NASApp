@@ -109,7 +109,6 @@
                                                 </view>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="kTy-yb-2Vc" secondAttribute="bottom" id="31x-He-ZhJ"/>
                                             <constraint firstItem="ILA-4c-XVW" firstAttribute="top" secondItem="oso-I3-zG3" secondAttribute="top" constant="8" id="ErW-7f-QNX"/>
@@ -172,7 +171,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tah-bo-vYy">
                                 <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1S3-4G-2o9">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1S3-4G-2o9">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                     </imageView>
                                 </subviews>
@@ -186,7 +185,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tah-bo-vYy" secondAttribute="trailing" id="ENA-Za-efj"/>
                             <constraint firstItem="tah-bo-vYy" firstAttribute="leading" secondItem="oAU-S4-F7Q" secondAttribute="leading" id="cJI-E5-PBf"/>
@@ -264,7 +263,6 @@
         <!--Gallary-->
         <scene sceneID="3CP-An-ewL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WwI-Zm-PW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5zd-8p-vAk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Gallary" id="zDO-sb-B39"/>
                     <toolbarItems/>
@@ -277,6 +275,7 @@
                         <segue destination="sOU-pf-dbK" kind="relationship" relationship="rootViewController" id="gaY-eR-UZC"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WwI-Zm-PW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2489" y="-795"/>
         </scene>
