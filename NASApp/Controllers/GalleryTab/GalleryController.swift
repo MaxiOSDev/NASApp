@@ -49,9 +49,9 @@ class GalleryController: UIViewController {
                     for href in link.links {
                         if href.href?.range(of: ".jpg") != nil {
                             linkArray.append(link)
-                            print("Yes \(href.href)\n")
+                      //      print("Yes \(href.href)\n")
                         } else {
-                            print("No \(href.href)\n")
+                      //      print("No \(href.href)\n")
                         }
                     }
                 }

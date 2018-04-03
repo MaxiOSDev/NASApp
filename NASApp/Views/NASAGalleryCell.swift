@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 struct GalleryCellViewModel {
     let galleryImage: UIImage
     let label: String
@@ -35,13 +36,14 @@ class NASAGalleryCell: UICollectionViewCell {
     
     var imageDownloader: GalleryDownloader?
     var images: NASAGallery?
+   
 
     func configure(with viewModel: GalleryCellViewModel) {
         if let imagePath = images?.href {
             if let image = ImageCache.shared.get(with: imagePath) {
                 print("cached image loaded")
                 
-                self.galleryImageView.image = image
+              //  self.galleryImageView.image = image
                 print("Image Here 1: \(image)")
                 
             } else {
@@ -63,7 +65,7 @@ class NASAGalleryCell: UICollectionViewCell {
             
             DispatchQueue.main.async {
                 if let cacheImage = image.href {
-                    self.galleryImageView.image = ImageCache.shared.get(with: cacheImage)
+                    //self.galleryImageView.image = ImageCache.shared.get(with: cacheImage)
                     
                     
                 }
@@ -72,6 +74,8 @@ class NASAGalleryCell: UICollectionViewCell {
         
         self.imageDownloader = downloader
     }
+    
+
     
 }
 

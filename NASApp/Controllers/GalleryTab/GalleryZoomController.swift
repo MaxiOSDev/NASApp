@@ -25,7 +25,7 @@ class GalleryZoomController: UIViewController {
         
         // Do any additional setup after loading the view.
         for link in photo.links {
-            print("Inside Zoom for loop: \(link.href) \(link.data) \(link.galleryState) \(link.image)")
+         //   print("Inside Zoom for loop: \(link.href) \(link.data) \(link.galleryState) \(link.image)")
             photoImageView.image = link.image
         }
     }

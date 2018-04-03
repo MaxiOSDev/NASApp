@@ -8,18 +8,19 @@
 
 import Foundation
 import UIKit
+import Nuke
 
 class GalleryDatasource: NSObject, UICollectionViewDataSource {
     
     private let collectionView: UICollectionView
     private var images: [NASAGallery]
-    var downloadedImages = [UIImage]()
+
     var links: [NASAGalleryLinks]
     let client = NASAClient()
-    
+    let nukeManager = Nuke.Manager.shared
     let pendingOperations = PendingOperations()
     var pageNumber: Int?
-    
+    var photos = [URL]()
     init(images: [NASAGallery], links: [NASAGalleryLinks], collectionView: UICollectionView) {
         self.images = images
         self.collectionView = collectionView
@@ -46,18 +47,17 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let galleryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! NASAGalleryCell
         
-     //   let image = images[indexPath.row]
         let image = links[indexPath.row]
         
         for gallery in image.links {
+            photos.append(URL(string: gallery.href!)!)
+            print("URLS HERE \(photos)")
             for data in image.data {
              let viewModel = GalleryCellViewModel(link: image, gallery: gallery , data: data) //GalleryCellViewModel(image: image)
                 galleryCell.configure(with: viewModel)
                 galleryCell.configureImageDownloader(for: gallery)
-                //print("Gallery Image: \(viewModel.galleryImage)") // It is the placeholder
-                
-                downloadedImages.append(contentsOf: ImageCache.shared.downloadedImages)
-                //print("DownloadedImages in dataSource \(downloadedImages)")
+                let request = makeRequest(with: photos[indexPath.row])
+                nukeManager.loadImage(with: request, into: galleryCell.galleryImageView)
             }
         }
         
@@ -84,6 +84,10 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     
     func updateArray(with links: [NASAGalleryLinks]) {
         self.links = links
+    }
+    
+    func makeRequest(with url: URL) -> Request {
+        return Request(url: url)
     }
     
     func downloaderImageForGalleryImage(_ image: NASAGallery, atIndexPAth indexPath: IndexPath) {
@@ -142,9 +146,9 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
                             for href in link.links {
                                 if href.href?.range(of: ".jpg") != nil {
                                     linkArray.append(link)
-                                    print("Yes \(href.href)\n")
+                              //      print("Yes \(href.href)\n")
                                 } else {
-                                    print("No \(href.href)\n")
+                              //      print("No \(href.href)\n")
                                 }
                             }
                         }
@@ -173,7 +177,7 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
 extension GalleryDatasource: PageNumberDelegate {
     func getPageNumber(_ number: Int?) {
         pageNumber = number
-        print("Page Number from delegate: \(pageNumber)")
+    //    print("Page Number from delegate: \(pageNumber)")
     }
 }
 
