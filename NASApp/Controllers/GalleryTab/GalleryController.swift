@@ -47,7 +47,8 @@ class GalleryController: UIViewController {
                 
                 for link in collectionResults.collection.items {
                     for href in link.links {
-                        if href.href?.range(of: ".jpg") != nil {
+                        let hrefString = String(describing: href.href)
+                        if hrefString.range(of: ".jpg") != nil {
                             linkArray.append(link)
                       //      print("Yes \(href.href)\n")
                         } else {
@@ -92,7 +93,7 @@ class GalleryController: UIViewController {
         if segue.identifier == "showPhoto" {
             if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell), let pageViewController = segue.destination as? GalleryPageController {
                 
-                pageViewController.photoLinks = (galleryLinks?.collection.items)!
+                pageViewController.photoLinks =  dataSource.links //(galleryLinks?.collection.items)!
                 pageViewController.indexOfCurrentPhoto = indexPath.row
             }
         }

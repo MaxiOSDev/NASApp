@@ -158,7 +158,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="0C8-Y7-qzk" customClass="GalleryPageController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PN-de-pVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1170" y="-1514"/>
+            <point key="canvasLocation" x="-1184" y="-1514"/>
         </scene>
         <!--Gallery Zoom Controller-->
         <scene sceneID="d67-UW-4tM">

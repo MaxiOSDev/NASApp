@@ -43,13 +43,11 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
         
         for gallery in image.links {
             photos.append(URL(string: gallery.href!)!)
-            //print("URLS HERE \(photos)")
+
             for data in image.data {
              let viewModel = GalleryCellViewModel(link: image, gallery: gallery , data: data) //GalleryCellViewModel(image: image)
                 galleryCell.configure(with: viewModel)
-                let request = makeRequest(with: photos[indexPath.row])
-                nukeManager.loadImage(with: request, into: galleryCell.galleryImageView)
-                
+
             }
         }
         
@@ -57,6 +55,10 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
             galleryCell.planetLogoImageView.isHidden = true
             galleryCell.nasaGalleriesLabel.isHidden = true
         }
+        var newArray = photos.removingDuplicates()
+        
+        let request = makeRequest(with: newArray[indexPath.row])
+        nukeManager.loadImage(with: request, into: galleryCell.galleryImageView)
         
         return galleryCell
     }
@@ -91,6 +93,14 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
         return CGSize(width: screenWidth/2, height: screenWidth/3)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("IndexPath in didSelect Item: \(indexPath.row)")
+
+        for (element, index) in links.enumerated() {
+            print("HERE: \(element), \(index.links)")
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == links.count - 2 {
             if let number = pageNumber {
@@ -102,7 +112,8 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
                         
                         for link in galleryResult.collection.items {
                             for href in link.links {
-                                if href.href?.range(of: ".jpg") != nil {
+                                let hrefString = String(describing: href.href)
+                                if hrefString.range(of: ".jpg") != nil {
                                     linkArray.append(link)
                               //      print("Yes \(href.href)\n")
                                 } else {
@@ -139,7 +150,15 @@ extension GalleryDatasource: PageNumberDelegate {
     }
 }
 
-
+extension Array where Element: Equatable {
+    func removingDuplicates() -> Array {
+        return reduce(into: []) { result, element in
+            if !result.contains(element) {
+                result.append(element)
+            }
+        }
+    }
+}
 
 
 

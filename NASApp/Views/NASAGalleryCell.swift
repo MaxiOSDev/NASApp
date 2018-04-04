@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Nuke
 
 struct GalleryCellViewModel {
     let galleryImage: UIImage
@@ -35,10 +35,12 @@ class NASAGalleryCell: UICollectionViewCell {
     @IBOutlet weak var nasaGalleriesLabel: UILabel!
     
     var images: NASAGallery?
-
+    
     func configure(with viewModel: GalleryCellViewModel) {
+        
         imageNameLabel.text = viewModel.label
         imageDetailLabel.text = viewModel.detailLabel
+        
     }
 }
 
