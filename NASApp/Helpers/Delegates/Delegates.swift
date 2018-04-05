@@ -12,6 +12,14 @@ protocol PageNumberDelegate: class {
     func getPageNumber(_ number: Int?)
 }
 
+protocol BackButtonDelegate {
+    func backButtonTapped()
+}
+
+protocol AssignedControllerDelegate {
+    func assginedController(_ controller: RoverPageController)
+}
+
 
 
 

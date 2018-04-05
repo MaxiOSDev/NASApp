@@ -10,6 +10,7 @@ import UIKit
 import Nuke
 
 class RoverViewerController: UIViewController {
+
     
     @IBOutlet weak var imageView: UIImageView!
     var photo: Photo?
@@ -19,6 +20,8 @@ class RoverViewerController: UIViewController {
         // Do any additional setup after loading the view.
         let request = Request(url: URL(string: (photo?.imgSrc)!)!)
         nukeManager.loadImage(with: request, into: imageView)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,5 +39,10 @@ class RoverViewerController: UIViewController {
         
         navigationController?.present(zoomController, animated: true, completion: nil)
     }
+    
+     func addTapped() {
+        print("Worked")
+    }
 
+    
 }

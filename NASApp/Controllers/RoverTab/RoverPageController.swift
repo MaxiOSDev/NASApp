@@ -12,7 +12,7 @@ class RoverPageController: UIPageViewController {
     
     var photos: [Photo] = []
     var indexOfCurrentPhoto: Int!
-
+    var backButtonDelegate: BackButtonDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
@@ -33,7 +33,11 @@ class RoverPageController: UIPageViewController {
         photoViewerController.photo = photo
         return photoViewerController
     }
-
+    
+    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "unwindSegue", sender: self)
+    }
+    
 }
 
 extension RoverPageController: UIPageViewControllerDataSource {
@@ -61,6 +65,9 @@ extension RoverPageController: UIPageViewControllerDataSource {
             return photoViewerController(with: photo)
         }
     }
+    
+    
+
 }
 
 

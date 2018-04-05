@@ -12,6 +12,7 @@ class RoverMakerController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var roverSegmentedControl: UISegmentedControl!
+    @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
     let client = NASAClient() 
     var roverImage: Welcome? {
         didSet {
@@ -67,7 +68,8 @@ class RoverMakerController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRover" {
-            if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell), let pageViewController = segue.destination as? RoverPageController {
+            if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell), let navController = segue.destination as? UINavigationController {
+                let pageViewController = navController.topViewController as! RoverPageController
                 pageViewController.photos = dataSource.images
                 pageViewController.indexOfCurrentPhoto = indexPath.row
             }

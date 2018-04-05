@@ -289,7 +289,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="3W4-Aw-N4J" id="Hs0-cY-N7S"/>
                                             <outlet property="roverSolLabel" destination="1jM-x3-WzA" id="DWp-Nl-LtK"/>
-                                            <segue destination="5RP-Br-V1L" kind="show" identifier="showRover" id="ocF-Ex-a58"/>
+                                            <segue destination="NTg-9u-Ca5" kind="show" identifier="showRover" id="ocF-Ex-a58"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -314,16 +314,29 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISO-1n-xJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4Ef-SG-hWD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-284" y="-401"/>
         </scene>
         <!--Rover Page Controller-->
         <scene sceneID="oa1-Qp-kFT">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="5RP-Br-V1L" customClass="RoverPageController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="5RP-Br-V1L" customClass="RoverPageController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ng7-M1-NuY">
+                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="HDM-2j-6c5">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="5RP-Br-V1L" id="zlB-w7-Xwe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="HJz-W5-e2M"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="4Ef-SG-hWD" kind="unwind" identifier="unwindSegue" unwindAction="unwindToVC1WithSegue:" id="ui3-Sa-CjU"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vix-H8-gsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="486" y="-401"/>
+            <point key="canvasLocation" x="1057" y="-401"/>
         </scene>
         <!--Rover Viewer Controller-->
         <scene sceneID="NPJ-Vo-Ait">
@@ -362,7 +375,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1148" y="-401"/>
+            <point key="canvasLocation" x="1724" y="-401"/>
         </scene>
         <!--Rover Zoom Controller-->
         <scene sceneID="qzH-Zc-8Jw">
@@ -415,7 +428,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1798" y="-401"/>
+            <point key="canvasLocation" x="2352" y="-401"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Cxl-Yx-S1I">
@@ -491,6 +504,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ax-8D-2j2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-985" y="-401"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0Fz-HD-SZy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NTg-9u-Ca5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F3n-0i-ONG">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5RP-Br-V1L" kind="relationship" relationship="rootViewController" id="7gW-xc-Gfr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bvu-Ea-KYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="-401"/>
         </scene>
     </scenes>
 </document>
