@@ -21,11 +21,6 @@ class RoverPageController: UIPageViewController {
             setViewControllers([photoViewerController], direction: .forward, animated: false, completion: nil)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func photoViewerController(with photo: Photo) -> RoverViewerController? {
         guard let storyboard = storyboard, let photoViewerController = storyboard.instantiateViewController(withIdentifier: "RoverViewerController") as? RoverViewerController else { return nil}
@@ -37,6 +32,16 @@ class RoverPageController: UIPageViewController {
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "unwindSegue", sender: self)
     }
+    
+    @IBAction func editImage(_ sender: UIBarButtonItem) {
+        guard let storyboard = storyboard, let editVC = storyboard.instantiateViewController(withIdentifier: "EditImageController") as? EditImageController else { return }
+        editVC.modalTransitionStyle = .crossDissolve
+        editVC.photo = photos[indexOfCurrentPhoto]
+        
+        self.present(editVC, animated: true, completion: nil)
+    }
+    
+    
     
 }
 
@@ -66,8 +71,6 @@ extension RoverPageController: UIPageViewControllerDataSource {
         }
     }
     
-    
-
 }
 
 
