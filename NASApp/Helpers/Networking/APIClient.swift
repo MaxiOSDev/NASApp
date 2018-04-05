@@ -53,12 +53,25 @@ class NASAClient: APIClientProtocol {
         }
     }
     
-    static func loadImagesAsync(from feedType: NASADetail?, completion: @escaping ([NASAGallery]) -> Void) {
-        URLSession.shared.dataTask(with: (feedType?.request)!) { (data, response, error) in
-            let images = [NASAGallery]()
-            if let _ = data {
-                completion(images)
-            }
-        } .resume()
+    func parseRoverCollection(from feedType: NASADetail, completion: @escaping (Result<Welcome?, APIError>) -> Void) {
+        let endpoint = feedType
+        print("Endpoint: \(endpoint.roverPath) queryItems: \(endpoint.roverQueryItems)")
+        let request = endpoint.roverRequest
+        print("Rover Request: \(request)")
+        DispatchQueue.main.async {
+            self.fetch(with: request, decode: { (json) -> Welcome? in
+                guard let roverFeedResult = json as? Welcome else { return nil}
+                return roverFeedResult
+            }, completion: completion)
+        }
     }
+    
+//    static func loadImagesAsync(from feedType: NASADetail?, completion: @escaping ([NASAGallery]) -> Void) {
+//        URLSession.shared.dataTask(with: (feedType?.request)!) { (data, response, error) in
+//            let images = [NASAGallery]()
+//            if let _ = data {
+//                completion(images)
+//            }
+//        } .resume()
+//    }
 }

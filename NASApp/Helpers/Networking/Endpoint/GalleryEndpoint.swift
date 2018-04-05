@@ -45,12 +45,14 @@ extension GalleryEndpoint {
 
 enum NASADetail {
     case gallery
+    case rover
 }
 
 extension NASADetail: GalleryEndpoint {
     var path: String {
         switch self {
         case .gallery: return "/search"
+        case .rover: return ""
         }
     }
     
