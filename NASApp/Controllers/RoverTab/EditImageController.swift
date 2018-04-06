@@ -33,8 +33,8 @@ class EditImageController: UIViewController {
     
     
     @IBAction func addTextField(_ sender: UIButton) {
-        createTextField()
-        
+        //createTextField()
+        createTextView()
     }
     
     
@@ -64,6 +64,22 @@ class EditImageController: UIViewController {
         return newImage!
     }
     
+    func createTextView() {
+        let newTextView = UITextView(frame: CGRect(x: view.center.x, y: view.center.y, width: 100, height: 80))
+        newTextView.center = self.view.center
+        newTextView.textAlignment = NSTextAlignment.center
+        newTextView.text = "Text"
+        newTextView.textColor = .blue
+        newTextView.backgroundColor = .clear
+        newTextView.font = UIFont.systemFont(ofSize: 20)
+        let dragGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handleDrag(_:)))
+        dragGesture.delegate = self
+        newTextView.addGestureRecognizer(dragGesture)
+        newTextView.isUserInteractionEnabled = true
+        newTextView.delegate = self
+        self.view.addSubview(newTextView)
+    }
+    
     func createTextField() {
         
         let newTextfield = UITextField(frame: CGRect(x: view.center.x, y: view.center.y, width: 50, height: 80))
@@ -81,6 +97,8 @@ class EditImageController: UIViewController {
         dragGesture.delegate = self
         newTextfield.addGestureRecognizer(dragGesture)
         newTextfield.isUserInteractionEnabled = true
+        
+        
         self.view.addSubview(newTextfield)
     }
     
@@ -129,6 +147,22 @@ extension EditImageController: UITextFieldDelegate, UIGestureRecognizerDelegate 
         print("\(textField.frame.size.width)")
         return true
     }
+}
+
+extension EditImageController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Text" {
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Text"
+        }
+    }
+    
+    
 }
 
 
