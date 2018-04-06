@@ -9,6 +9,7 @@
 import UIKit
 import Nuke
 import JLStickerTextView
+import MessageUI
 
 class EditImageController: UIViewController {
 
@@ -49,14 +50,39 @@ class EditImageController: UIViewController {
     }
     
     @IBAction func sendImage(_ sender: UIBarButtonItem) {
-        
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
     
-    
-    // For tommorow, can use a textfield or differnt of some sorts like apple or snapchat does. The CG Point can be a place where the user drags the label/text around. Pan Drag gesture to drag the text label from one place to another. Then get those CGPoint coords and pass it in. The text will be the labels text, and the image is the imageview.image.
-    // FIXME: - MORE IMPLEMENTATION
-    
     // MARK: - Helper Methods
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setSubject("Sending you an in-app e-mail...")
+        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        if let image = imageView.renderTextOnView(imageView) {
+            if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+                mailComposerVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "test.jpeg")
+            }
+        }
+       
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let alert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail. Please check e-mail configuration and try again", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+
+    }
+
     func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
         let textColor = UIColor.white
         let textFont = UIFont(name: "Helvetica Bold", size: 12)!
@@ -176,8 +202,12 @@ extension EditImageController: UITextViewDelegate {
             textView.text = "Text"
         }
     }
-    
-    
+}
+
+extension EditImageController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 

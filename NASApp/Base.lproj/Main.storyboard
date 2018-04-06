@@ -453,7 +453,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yT4-Ee-SLD">
-                                <rect key="frame" x="20" y="974" width="50" height="30"/>
+                                <rect key="frame" x="20" y="974" width="43" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -464,6 +464,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WF5-l4-qaj" firstAttribute="trailing" secondItem="tL4-Qi-vdZ" secondAttribute="trailing" constant="20" id="27K-0n-Njv"/>
+                            <constraint firstItem="WF5-l4-qaj" firstAttribute="trailing" secondItem="yT4-Ee-SLD" secondAttribute="trailing" constant="705" id="3xm-Mf-dsK"/>
                             <constraint firstItem="WF5-l4-qaj" firstAttribute="bottom" secondItem="YuN-7p-FR4" secondAttribute="bottom" constant="100" id="5CS-8a-paQ"/>
                             <constraint firstItem="WF5-l4-qaj" firstAttribute="bottom" secondItem="yT4-Ee-SLD" secondAttribute="bottom" constant="20" id="H1l-sz-qDb"/>
                             <constraint firstItem="yT4-Ee-SLD" firstAttribute="top" secondItem="YuN-7p-FR4" secondAttribute="bottom" constant="50" id="Hf3-p6-pI5"/>
@@ -471,7 +472,6 @@
                             <constraint firstItem="tL4-Qi-vdZ" firstAttribute="top" secondItem="YuN-7p-FR4" secondAttribute="bottom" constant="58" id="POz-9b-CGc"/>
                             <constraint firstItem="YuN-7p-FR4" firstAttribute="trailing" secondItem="WF5-l4-qaj" secondAttribute="trailing" id="b5w-lF-oXh"/>
                             <constraint firstItem="YuN-7p-FR4" firstAttribute="leading" secondItem="WF5-l4-qaj" secondAttribute="leading" id="eGC-F1-bVk"/>
-                            <constraint firstItem="tL4-Qi-vdZ" firstAttribute="leading" secondItem="yT4-Ee-SLD" secondAttribute="trailing" constant="656" id="jhs-l2-6Az"/>
                             <constraint firstItem="tL4-Qi-vdZ" firstAttribute="leading" secondItem="WF5-l4-qaj" secondAttribute="leading" constant="726" id="osi-tQ-kP9"/>
                             <constraint firstItem="yT4-Ee-SLD" firstAttribute="leading" secondItem="WF5-l4-qaj" secondAttribute="leading" constant="20" id="yI8-0K-A56"/>
                             <constraint firstItem="WF5-l4-qaj" firstAttribute="bottom" secondItem="tL4-Qi-vdZ" secondAttribute="bottom" constant="20" id="zUC-qv-NXL"/>
