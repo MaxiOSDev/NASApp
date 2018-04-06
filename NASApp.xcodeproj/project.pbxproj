@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68A55A1F24AC38AC3889CE72 /* Pods_NASAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB1323132073D69100437665 /* Pods_NASAppTests.framework */; };
 		D35317C58AF8BA7FC485EB5C /* Pods_NASAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F47BD1FC50AEDED611256B /* Pods_NASAppTests.framework */; };
 		FB13230E2073D69100437665 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB1323112073D69100437665 /* Nuke.framework */; };
 		FB13230F2073D69100437665 /* Pods_NASApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB1323122073D69100437665 /* Pods_NASApp.framework */; };
@@ -121,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D35317C58AF8BA7FC485EB5C /* Pods_NASAppTests.framework in Frameworks */,
+				68A55A1F24AC38AC3889CE72 /* Pods_NASAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,10 +490,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NASApp/Pods-NASApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JLStickerTextView/JLStickerTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLStickerTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
