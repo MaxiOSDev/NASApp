@@ -36,9 +36,20 @@ class EditImageController: UIViewController {
     
     
     @IBAction func addTextField(_ sender: UIButton) {
-        //createTextField()
-        //createTextView()
         imageView.addLabel()
+        imageView.textColor = .blue
+        imageView.textAlpha = 1
+        
+    }
+    
+    @IBAction func saveImage(_ sender: UIButton) {
+        if let imageAttachment = imageView.renderTextOnView(imageView) {
+            UIImageWriteToSavedPhotosAlbum(imageAttachment, nil, nil, nil)
+        }
+    }
+    
+    @IBAction func sendImage(_ sender: UIBarButtonItem) {
+        
     }
     
     
