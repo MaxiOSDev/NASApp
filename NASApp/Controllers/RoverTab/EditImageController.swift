@@ -8,10 +8,13 @@
 
 import UIKit
 import Nuke
+import JLStickerTextView
 
 class EditImageController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+   // @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: JLStickerImageView!
+    
     var photo: Photo!
     var nukeManager = Nuke.Manager.shared
     
@@ -34,7 +37,8 @@ class EditImageController: UIViewController {
     
     @IBAction func addTextField(_ sender: UIButton) {
         //createTextField()
-        createTextView()
+        //createTextView()
+        imageView.addLabel()
     }
     
     

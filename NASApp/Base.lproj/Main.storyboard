@@ -442,7 +442,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-7p-FR4">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-7p-FR4" customClass="JLStickerImageView" customModule="JLStickerTextView">
                                 <rect key="frame" x="0.0" y="164" width="768" height="760"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -475,7 +475,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Send" id="Zzg-18-NnF"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="YuN-7p-FR4" id="sEH-m8-IO6"/>
+                        <outlet property="imageView" destination="YuN-7p-FR4" id="2hf-KQ-HSN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUb-JQ-3KO" userLabel="First Responder" sceneMemberID="firstResponder"/>
