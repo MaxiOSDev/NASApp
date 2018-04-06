@@ -37,8 +37,10 @@ class RoverPageController: UIPageViewController {
         guard let storyboard = storyboard, let editVC = storyboard.instantiateViewController(withIdentifier: "EditImageController") as? EditImageController else { return }
         editVC.modalTransitionStyle = .crossDissolve
         editVC.photo = photos[indexOfCurrentPhoto]
-        
-        self.present(editVC, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: editVC)
+        navController.navigationBar.barTintColor = .black
+        navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.present(navController, animated: true, completion: nil)
     }
     
     

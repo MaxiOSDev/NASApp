@@ -434,7 +434,7 @@
             </objects>
             <point key="canvasLocation" x="2352" y="-401"/>
         </scene>
-        <!--Edit Image Controller-->
+        <!--Post Card Maker-->
         <scene sceneID="FuU-MM-Qk0">
             <objects>
                 <viewController storyboardIdentifier="EditImageController" id="bZL-qi-4dx" customClass="EditImageController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -443,26 +443,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-7p-FR4">
-                                <rect key="frame" x="0.0" y="120" width="768" height="804"/>
+                                <rect key="frame" x="0.0" y="164" width="768" height="760"/>
                                 <gestureRecognizers/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tL4-Qi-vdZ">
+                                <rect key="frame" x="726" y="982" width="22" height="22"/>
+                                <connections>
+                                    <action selector="addTextField:" destination="bZL-qi-4dx" eventType="touchUpInside" id="4f3-oA-H2S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WF5-l4-qaj" firstAttribute="trailing" secondItem="tL4-Qi-vdZ" secondAttribute="trailing" constant="20" id="27K-0n-Njv"/>
                             <constraint firstItem="WF5-l4-qaj" firstAttribute="bottom" secondItem="YuN-7p-FR4" secondAttribute="bottom" constant="100" id="5CS-8a-paQ"/>
                             <constraint firstItem="YuN-7p-FR4" firstAttribute="top" secondItem="WF5-l4-qaj" secondAttribute="top" constant="100" id="IFp-EI-kQb"/>
+                            <constraint firstItem="tL4-Qi-vdZ" firstAttribute="top" secondItem="YuN-7p-FR4" secondAttribute="bottom" constant="58" id="POz-9b-CGc"/>
                             <constraint firstItem="YuN-7p-FR4" firstAttribute="trailing" secondItem="WF5-l4-qaj" secondAttribute="trailing" id="b5w-lF-oXh"/>
                             <constraint firstItem="YuN-7p-FR4" firstAttribute="leading" secondItem="WF5-l4-qaj" secondAttribute="leading" id="eGC-F1-bVk"/>
+                            <constraint firstItem="tL4-Qi-vdZ" firstAttribute="leading" secondItem="WF5-l4-qaj" secondAttribute="leading" constant="726" id="osi-tQ-kP9"/>
+                            <constraint firstItem="WF5-l4-qaj" firstAttribute="bottom" secondItem="tL4-Qi-vdZ" secondAttribute="bottom" constant="20" id="zUC-qv-NXL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WF5-l4-qaj"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Post Card Maker" id="Bcg-Pv-a7A">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="t6J-sc-0iD">
+                            <connections>
+                                <action selector="cancel:" destination="bZL-qi-4dx" id="qFc-xd-9XR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="Zzg-18-NnF"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="YuN-7p-FR4" id="sEH-m8-IO6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUb-JQ-3KO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3084" y="-401"/>
+            <point key="canvasLocation" x="3769.53125" y="-401.953125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Cxl-Yx-S1I">
@@ -556,6 +574,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bvu-Ea-KYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="395" y="-401"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jyk-iZ-Ywc">
+            <objects>
+                <navigationController storyboardIdentifier="EditVCNavController" automaticallyAdjustsScrollViewInsets="NO" id="iGP-c3-vGB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SfV-aD-qEv">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bZL-qi-4dx" kind="relationship" relationship="rootViewController" id="VqO-h7-XoH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4L-Ex-hmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3046" y="-402"/>
         </scene>
     </scenes>
 </document>

@@ -33,11 +33,12 @@ class RoverViewerController: UIViewController {
         print("Tapped Before")
         guard let storyboard = storyboard else { return }
         print("Tapped After")
+        
         let zoomController = storyboard.instantiateViewController(withIdentifier: String(describing: RoverZoomController.self)) as! RoverZoomController
         zoomController.modalTransitionStyle = .crossDissolve
         zoomController.photo = photo
         
-        navigationController?.present(zoomController, animated: true, completion: nil)
+        self.present(zoomController, animated: true, completion: nil)
     }
     
      func addTapped() {
