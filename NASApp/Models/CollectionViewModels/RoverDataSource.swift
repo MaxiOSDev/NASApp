@@ -12,13 +12,20 @@ import Nuke
 
 class RoverDataSource: NSObject, UICollectionViewDataSource {
     private let collectionView: UICollectionView
-    var images: [Photo]
+    var curiosityImages: [Photo]?
+    var opporunityImages: [Photo]?
+    var spiritImages: [Photo]?
     let client = NASAClient()
     let nukeManager = Nuke.Manager.shared
-    var photosURL = [URL]()
+    
+    var curiosityPhotosURL = [URL]()
+    var opportunityPhotosURL = [URL]()
+    var spiritPhotosURL = [URL]()
+    
+    var segmentedControlIndex: Int?
     
     init(images: [Photo], collectionView: UICollectionView) {
-        self.images = images
+        //self.images = images
         self.collectionView = collectionView
         super.init()
     }
@@ -28,22 +35,56 @@ class RoverDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        
+        if segmentedControlIndex == 0 {
+            if let images = curiosityImages {
+                return images.count
+            }
+           // return (curiosityImages?.count)!
+        } else if segmentedControlIndex == 1 {
+            if let images = opporunityImages {
+                return images.count
+            }
+          //  return (opporunityImages?.count)!
+        } else if segmentedControlIndex == 2 {
+            if let images = spiritImages {
+                return images.count
+            }
+          //  return (spiritImages?.count)!
+        }
+        
+        return 0
+        
+       // return curiosityImages?.count ?? opporunityImages?.count ?? spiritImages?.count ?? 0 //images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let roverCell = collectionView.dequeueReusableCell(withReuseIdentifier: "roverCell", for: indexPath) as! NASARoverCell
-        let image = images[indexPath.row]
         
-        let request = makeRequest(with: URL(string: image.imgSrc)!)
-        nukeManager.loadImage(with: request, into: roverCell.imageView)
-        roverCell.roverSolLabel.text = image.earthDate
-        
+        if segmentedControlIndex == 0 {
+            let image = curiosityImages![indexPath.row]
+            let request = makeRequest(with: URL(string: image.imgSrc)!)
+            nukeManager.loadImage(with: request, into: roverCell.imageView)
+            roverCell.roverSolLabel.text = image.earthDate
+        } else if segmentedControlIndex == 1 {
+            let image = opporunityImages![indexPath.row]
+            let request = makeRequest(with: URL(string: image.imgSrc)!)
+            nukeManager.loadImage(with: request, into: roverCell.imageView)
+            roverCell.roverSolLabel.text = image.earthDate
+        } else {
+            let image = spiritImages![indexPath.row]
+            let request = makeRequest(with: URL(string: image.imgSrc)!)
+            nukeManager.loadImage(with: request, into: roverCell.imageView)
+            roverCell.roverSolLabel.text = image.earthDate
+        }
+
         return roverCell
     }
     
-    func update(with roverImages: [Photo]) {
-        self.images = roverImages
+    func update(with roverImages: [Photo], _ opportunityImages: [Photo], _ spiritImages: [Photo]) {
+        self.curiosityImages = roverImages
+        self.opporunityImages = opportunityImages
+        self.spiritImages = spiritImages
     }
     
     func makeRequest(with url: URL) -> Request {

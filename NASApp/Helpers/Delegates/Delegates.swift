@@ -20,6 +20,10 @@ protocol AssignedControllerDelegate {
     func assginedController(_ controller: RoverPageController)
 }
 
+protocol SegementIndexDelegate: class {
+    func selectedSegementIndex(_ index: Int)
+}
+
 
 
 

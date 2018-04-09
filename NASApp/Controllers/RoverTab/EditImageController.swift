@@ -68,7 +68,7 @@ class EditImageController: UIViewController {
         mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
         if let image = imageView.renderTextOnView(imageView) {
             if let imageData = UIImageJPEGRepresentation(image, 1.0) {
-                mailComposerVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "test.jpeg")
+                mailComposerVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "\(photo.earthDate).jpg")
             }
         }
        
@@ -80,7 +80,6 @@ class EditImageController: UIViewController {
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
-
     }
 
     func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {

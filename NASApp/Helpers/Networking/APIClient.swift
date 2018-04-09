@@ -21,17 +21,17 @@ class NASAClient: APIClientProtocol {
     
     func parseCollection(from galleryFeedType: NASADetail, completion: @escaping (Result<NASAGalleryCollection?, APIError>) -> Void) {
         let endpoint = galleryFeedType
-        print("Endpoint: \(endpoint.path) query Items: \(endpoint.queryItems)")
+      //  print("Endpoint: \(endpoint.path) query Items: \(endpoint.queryItems)")
         let request = endpoint.request
-        print("Request: \(request)")
+     //  print("Request: \(request)")
         DispatchQueue.main.async {
             self.fetch(with: request, decode: { (json) -> NASAGalleryCollection? in
-                print("JSON \(json)")
+        //        print("JSON \(json)")
                 guard let galleryFeedResult = json as? NASAGalleryCollection else {
                     return nil
                 }
                 
-                print(galleryFeedResult)
+            //    print(galleryFeedResult)
                 
                 return galleryFeedResult
             }, completion: completion)
@@ -43,7 +43,7 @@ class NASAClient: APIClientProtocol {
         let request = URLRequest(url: url!)
         DispatchQueue.main.async {
             self.fetch(with: request, decode: { (json) -> NASAGalleryCollection? in
-                print("JSON \(json)")
+         //       print("JSON \(json)")
                 guard let galleryFeedResult = json as? NASAGalleryCollection else {
                     return nil
                 }
@@ -55,9 +55,9 @@ class NASAClient: APIClientProtocol {
     
     func parseRoverCollection(from feedType: NASADetail, completion: @escaping (Result<Welcome?, APIError>) -> Void) {
         let endpoint = feedType
-        print("Endpoint: \(endpoint.roverPath) queryItems: \(endpoint.roverQueryItems)")
+      //  print("Endpoint: \(endpoint.roverPath) queryItems: \(endpoint.roverQueryItems)")
         let request = endpoint.roverRequest
-        print("Rover Request: \(request)")
+       // print("Rover Request: \(request)")
         DispatchQueue.main.async {
             self.fetch(with: request, decode: { (json) -> Welcome? in
                 guard let roverFeedResult = json as? Welcome else { return nil}
@@ -65,13 +65,5 @@ class NASAClient: APIClientProtocol {
             }, completion: completion)
         }
     }
-    
-//    static func loadImagesAsync(from feedType: NASADetail?, completion: @escaping ([NASAGallery]) -> Void) {
-//        URLSession.shared.dataTask(with: (feedType?.request)!) { (data, response, error) in
-//            let images = [NASAGallery]()
-//            if let _ = data {
-//                completion(images)
-//            }
-//        } .resume()
-//    }
+
 }

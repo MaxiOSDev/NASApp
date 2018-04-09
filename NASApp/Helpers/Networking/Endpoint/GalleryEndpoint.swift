@@ -31,28 +31,31 @@ extension GalleryEndpoint {
         var components = URLComponents(string: base)!
         components.path = path
         components.queryItems = queryItems
-        print("Gallery Query Items \(queryItems)")
+    //    print("Gallery Query Items \(queryItems)")
         return components
     }
     
     
     var request: URLRequest {
         let url = urlComponents.url!
-        print("URL within GalleryEndpoint: \(url)")
+      //  print("URL within GalleryEndpoint: \(url)")
         return URLRequest(url: url)
     }
 }
 
 enum NASADetail {
     case gallery
-    case rover
+    case curiosity
+    case opportunity
+    case spirit
+    
 }
 
 extension NASADetail: GalleryEndpoint {
     var path: String {
         switch self {
         case .gallery: return "/search"
-        case .rover: return ""
+        case .curiosity, .opportunity, .spirit: return ""
         }
     }
     

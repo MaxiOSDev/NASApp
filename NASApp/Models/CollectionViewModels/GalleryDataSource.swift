@@ -94,10 +94,10 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("IndexPath in didSelect Item: \(indexPath.row)")
+      //  print("IndexPath in didSelect Item: \(indexPath.row)")
 
         for (element, index) in links.enumerated() {
-            print("HERE: \(element), \(index.links)")
+      //      print("HERE: \(element), \(index.links)")
         }
     }
     

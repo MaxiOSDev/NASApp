@@ -23,7 +23,7 @@ extension RoverEndpoint {
         var components = URLComponents(string: roverBase)!
         components.path = roverPath
         components.queryItems = roverQueryItems
-        print("Gallery Query Items \(roverQueryItems)")
+       // print("Gallery Query Items \(roverQueryItems)")
         return components
     }
     
@@ -38,13 +38,15 @@ extension NASADetail: RoverEndpoint {
     var roverPath: String {
         switch self {
         case .gallery: return ""
-        case .rover: return "/mars-photos/api/v1/rovers/curiosity/photos"
+        case .curiosity: return "/mars-photos/api/v1/rovers/curiosity/photos"
+        case .opportunity: return "/mars-photos/api/v1/rovers/opportunity/photos"
+        case .spirit: return "/mars-photos/api/v1/rovers/spirit/photos"
         }
     }
     
     var roverQueryItems: [URLQueryItem] {
         var result = [URLQueryItem]()
-        let sol = URLQueryItem(name: "sol", value: "1000")
+        let sol = URLQueryItem(name: "sol", value: "10")
         let API_KEY = URLQueryItem(name: "api_key", value: "FibfgEAUvuS0knr5woA5aNckz4QWk12iB5KHkBKr")
         //let page = URLQueryItem(name: "page", value: "1")
         result.append(sol)
