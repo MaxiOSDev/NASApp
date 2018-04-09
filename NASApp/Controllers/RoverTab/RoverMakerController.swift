@@ -31,8 +31,8 @@ class RoverMakerController: UIViewController {
         super.viewDidLoad()
         dataSource.segmentedControlIndex = 0
         curiosityParse()
-        opportunityParse()
-        spiritParse()
+        
+        
         roverSegmentedControl.selectedSegmentIndex = 0
         collectionView.dataSource = dataSource
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -74,6 +74,7 @@ class RoverMakerController: UIViewController {
                 print("Curiosity Count \(collectionResults.photos.count)")
                 self.roverImage.append(collectionResult!)
                 print("RoverImage Count: \(self.roverImage.count)")
+                self.opportunityParse()
             case .failure(let error):
                 print("Error for results data \(error)")
             }
@@ -88,6 +89,7 @@ class RoverMakerController: UIViewController {
                 print("Opportunity Count \(collectionResults.photos.count)")
                 self.roverImage.append(collectionResult!) //collectionResults
                 print("RoverImage Count: \(self.roverImage.count)")
+                self.spiritParse()
             case .failure(let error):
                 print("Error for results data \(error)")
             }
@@ -119,6 +121,13 @@ class RoverMakerController: UIViewController {
         if segue.identifier == "showRover" {
             if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell), let navController = segue.destination as? UINavigationController {
                 let pageViewController = navController.topViewController as! RoverPageController
+                if dataSource.segmentedControlIndex == 0 {
+                    pageViewController.photos = dataSource.curiosityImages!
+                } else if dataSource.segmentedControlIndex == 1 {
+                    pageViewController.photos = dataSource.opporunityImages!
+                } else if dataSource.segmentedControlIndex == 2 {
+                    pageViewController.photos = dataSource.spiritImages!
+                }
                // pageViewController.photos = dataSource.images
                 pageViewController.indexOfCurrentPhoto = indexPath.row
             }
