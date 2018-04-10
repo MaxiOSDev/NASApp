@@ -44,29 +44,14 @@ struct Photo: Codable, Hashable {
 
 struct PhotoCamera: Codable {
     let id: Int
-   // let name: PurpleName
     let roverID: Int
-  //  let fullName: PurpleFullName
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "id"
-       //  case name = "name"
         case roverID = "rover_id"
-    //    case fullName = "full_name"
     }
 }
 
-//enum PurpleFullName: String, Codable {
-//    case frontHazardAvoidanceCamera = "Front Hazard Avoidance Camera"
-//    case mastCamera = "Mast Camera"
-//    case rearHazardAvoidanceCamera = "Rear Hazard Avoidance Camera"
-//}
-
-//enum PurpleName: String, Codable {
-//    case fhaz = "FHAZ"
-//    case mast = "MAST"
-//    case rhaz = "RHAZ"
-//}
 
 struct Rover: Codable {
     let id: Int
@@ -92,45 +77,6 @@ struct Rover: Codable {
     }
 }
 
-//struct CameraElement: Codable {
-//    let name: FluffyName
-//    let fullName: FluffyFullName
-//
-//    enum CodingKeys: String, CodingKey {
-//        case name = "name"
-//        case fullName = "full_name"
-//    }
-//}
-
-//enum FluffyFullName: String, Codable {
-//    case chemistryAndCameraComplex = "Chemistry and Camera Complex"
-//    case frontHazardAvoidanceCamera = "Front Hazard Avoidance Camera"
-//    case marsDescentImager = "Mars Descent Imager"
-//    case marsHandLensImager = "Mars Hand Lens Imager"
-//    case mastCamera = "Mast Camera"
-//    case navigationCamera = "Navigation Camera"
-//    case rearHazardAvoidanceCamera = "Rear Hazard Avoidance Camera"
-//}
-
-//enum FluffyName: String, Codable {
-//    case chemcam = "CHEMCAM"
-//    case fhaz = "FHAZ"
-//    case mahli = "MAHLI"
-//    case mardi = "MARDI"
-//    case mast = "MAST"
-//    case navcam = "NAVCAM"
-//    case rhaz = "RHAZ"
-//}
-
-//enum RoverName: String, Codable {
-//    case curiosity = "Curiosity"
-//    case opportunity = "Opportunity"
-//    case spirit = "Spirit"
-//}
-
-//enum Status: String, Codable {
-//    case active = "active"
-//}
 
 
 

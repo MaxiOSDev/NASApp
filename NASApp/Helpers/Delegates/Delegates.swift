@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PageNumberDelegate: class {
     func getPageNumber(_ number: Int?)
@@ -22,6 +23,11 @@ protocol AssignedControllerDelegate {
 
 protocol SegementIndexDelegate: class {
     func selectedSegementIndex(_ index: Int)
+}
+
+protocol MapViewDelegate: class {
+    func showMap(for view: UIView)
+    func hideMap()
 }
 
 

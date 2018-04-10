@@ -37,10 +37,11 @@ extension RoverEndpoint {
 extension NASADetail: RoverEndpoint {
     var roverPath: String {
         switch self {
-        case .gallery: return ""
+        case .gallery, .earthImagery: return ""
         case .curiosity: return "/mars-photos/api/v1/rovers/curiosity/photos"
         case .opportunity: return "/mars-photos/api/v1/rovers/opportunity/photos"
         case .spirit: return "/mars-photos/api/v1/rovers/spirit/photos"
+            
         }
     }
     

@@ -10,6 +10,8 @@ import UIKit
 import SceneKit
 import ARKit
 
+@available(iOS 11.0, *)
+
 class ARPlanetController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!

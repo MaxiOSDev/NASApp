@@ -48,14 +48,14 @@ enum NASADetail {
     case curiosity
     case opportunity
     case spirit
-    
+    case earthImagery
 }
 
 extension NASADetail: GalleryEndpoint {
     var path: String {
         switch self {
         case .gallery: return "/search"
-        case .curiosity, .opportunity, .spirit: return ""
+        case .curiosity, .opportunity, .spirit, .earthImagery: return ""
         }
     }
     
