@@ -8,10 +8,12 @@
 
 import Foundation
 import MapKit
+import Nuke
+import CoreLocation
 
 class LocationMapAnnotationView: MKAnnotationView {
     weak var customCalloutView: LocationAnnotatonView?
-   
+    var nukeManager = Nuke.Manager.shared
     override var annotation: MKAnnotation? {
         willSet { customCalloutView?.removeFromSuperview() }
     }
@@ -19,11 +21,13 @@ class LocationMapAnnotationView: MKAnnotationView {
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.canShowCallout = false
+        self.image = #imageLiteral(resourceName: "icon")
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.canShowCallout = false
+        self.image = #imageLiteral(resourceName: "icon")
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -60,12 +64,18 @@ class LocationMapAnnotationView: MKAnnotationView {
     }
     
     func loadLocationMapView() -> LocationAnnotatonView? {
+        
         if let views = Bundle.main.loadNibNamed("LocationAnnotationView", owner: self, options: nil) as? [LocationAnnotatonView], views.count > 0 {
             let locationAnnotationView = views.first!
-            if let locationAnnotation = annotation as? LocationAnnotation {
-                let location = locationAnnotation.locationManager
-                locationAnnotationView.configureWithImagery(location)
-            }
+            locationAnnotationView.layer.cornerRadius = 10
+
+            locationAnnotationView.locationNameLabel.text = EarthImageryData.sharedInstance.name!
+            locationAnnotationView.locationAddressLabel.text = EarthImageryData.sharedInstance.address!
+           // locationAnnotationView.locationNameLabel.text = EarthImageryData.sharedInstance.date
+           // locationAnnotationView.locationAddressLabel.text = "Test2"
+            let request = Request(url: URL(string: EarthImageryData.sharedInstance.url!)!)
+            nukeManager.loadImage(with: request, into: locationAnnotationView.imageView)
+           // locationAnnotationView.imageView.image = #imageLiteral(resourceName: "nasaLogo")
             
             return locationAnnotationView
         }
@@ -81,8 +91,21 @@ class LocationMapAnnotationView: MKAnnotationView {
 }
 
 class LocationAnnotation: NSObject, MKAnnotation {
-    var locationManager = EarthImageryData.sharedInstance
+    var locationManager: EarthImageryData
     var coordinate: CLLocationCoordinate2D { return CLLocationCoordinate2D(latitude: locationManager.lat!, longitude: locationManager.lon!)}
+    
+    init(location: EarthImageryData) {
+        self.locationManager = location
+        super.init()
+    }
+    
+    var title: String? {
+        return "Testing1"
+    }
+    
+    var subtitle: String? {
+        return "Testing2"
+    }
 }
 
 

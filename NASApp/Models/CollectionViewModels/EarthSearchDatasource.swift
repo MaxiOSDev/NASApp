@@ -21,6 +21,9 @@ class EarthSearchDatasource: NSObject, UITableViewDataSource, UITableViewDelegat
     var mapViewDelegate: MapViewDelegate?
     var searchMode: Bool? = false
     var imageryManager = EarthImageryData.sharedInstance
+    var client = NASAClient()
+    
+    
     init(tableView: UITableView, searchController: UISearchController, mapView: MKMapView, container: UIView?) {
         self.tableView = tableView
         self.searchController = searchController
@@ -44,6 +47,10 @@ class EarthSearchDatasource: NSObject, UITableViewDataSource, UITableViewDelegat
             let item = matchingItems[indexPath.row].placemark
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = parseAddress(selectedItem: item)
+            
+           
+          //  print(cell.detailTextLabel?.text)
+            
         }
         
         return cell
@@ -133,8 +140,20 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
             let item = matchingItems[indexPath.row].placemark
             dropPinZoomIn(placemark: item)
             imageryManager.lat = item.coordinate.latitude
-            imageryManager.lon = item.coordinate.latitude
-            
+            imageryManager.lon = item.coordinate.longitude
+            print("Latitude: \(item.coordinate.latitude), Longitude: \(item.coordinate.longitude)")
+            client.parseEarthImagery(from: .earthImagery) { result in
+                switch result {
+                case .success(let imageryResults):
+                    guard let imageryResult = imageryResults else { return }
+                    self.imageryManager.date = imageryResult.date
+                    self.imageryManager.url = imageryResult.url
+                    self.imageryManager.name = item.name
+                    self.imageryManager.address = self.parseAddress(selectedItem: item)
+                case .failure(let error):
+                    print("Imagery Datasource Clinet Error: \(error)")
+                }
+            }
         }
         
         tableView.reloadData()

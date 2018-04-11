@@ -13,6 +13,10 @@ class EarthImageryData {
     
     var lat: Double?
     var lon: Double?
+    var date: String?
+    var url: String?
+    var name: String?
+    var address: String?
 }
 
 struct NASAEarthImagery: Codable {

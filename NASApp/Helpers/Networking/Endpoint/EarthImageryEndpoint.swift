@@ -37,14 +37,14 @@ extension NASADetail: EarthImageryEndpoint {
     var earthPath: String {
         switch self {
             case .gallery, .curiosity, .opportunity, .spirit: return ""
-        case .earthImagery: return "/planetary/earth/imagery"
+        case .earthImagery: return "/planetary/earth/imagery/"
         }
     }
     
     var earthQueryItems: [URLQueryItem] {
         var result = [URLQueryItem]()
-        let lon = URLQueryItem(name: "lon", value: "VALUE HERE")
-        let lat = URLQueryItem(name: "lat", value: "VALUE HERE")
+        let lon = URLQueryItem(name: "lon", value: "\(EarthImageryData.sharedInstance.lon!)")
+        let lat = URLQueryItem(name: "lat", value: "\(EarthImageryData.sharedInstance.lat!)")
         let apiKey = URLQueryItem(name: "api_key", value: "FibfgEAUvuS0knr5woA5aNckz4QWk12iB5KHkBKr")
         result.append(lon)
         result.append(lat)

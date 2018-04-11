@@ -38,6 +38,7 @@ class EyeInSkyController: UIViewController, MapViewDelegate {
         
         definesPresentationContext = true
         dataSource.mapViewDelegate = self
+        mapView.delegate = dataSource
     }
 
     override func didReceiveMemoryWarning() {
