@@ -16,7 +16,7 @@ protocol EarthImageryEndpoint {
 
 extension EarthImageryEndpoint {
     var earthBase: String {
-        return "https://api.nasa.gov/planetary/earth/imagery"
+        return "https://api.nasa.gov"
     }
     
     var urlComponents: URLComponents {
@@ -37,13 +37,18 @@ extension NASADetail: EarthImageryEndpoint {
     var earthPath: String {
         switch self {
             case .gallery, .curiosity, .opportunity, .spirit: return ""
-        case .earthImagery: return ""
+        case .earthImagery: return "/planetary/earth/imagery"
         }
     }
     
     var earthQueryItems: [URLQueryItem] {
         var result = [URLQueryItem]()
-        
+        let lon = URLQueryItem(name: "lon", value: "VALUE HERE")
+        let lat = URLQueryItem(name: "lat", value: "VALUE HERE")
+        let apiKey = URLQueryItem(name: "api_key", value: "FibfgEAUvuS0knr5woA5aNckz4QWk12iB5KHkBKr")
+        result.append(lon)
+        result.append(lat)
+        result.append(apiKey)
         return result
     }
 }

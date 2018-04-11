@@ -28,9 +28,9 @@ class EyeInSkyController: UIViewController, MapViewDelegate {
         super.viewDidLoad()
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
-        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.searchBarStyle = .minimal
+       // searchController.searchBar.searchBarStyle = .default
         searchController.searchResultsUpdater = dataSource
         searchController.delegate = dataSource
         self.navigationItem.titleView = searchController.searchBar

@@ -20,7 +20,7 @@ class EarthSearchDatasource: NSObject, UITableViewDataSource, UITableViewDelegat
     var selectedPin: MKPlacemark? = nil
     var mapViewDelegate: MapViewDelegate?
     var searchMode: Bool? = false
-    
+    var imageryManager = EarthImageryData.sharedInstance
     init(tableView: UITableView, searchController: UISearchController, mapView: MKMapView, container: UIView?) {
         self.tableView = tableView
         self.searchController = searchController
@@ -98,6 +98,10 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
         }
     }
     
+    func didPresentSearchController(_ searchController: UISearchController) {
+        searchController.searchBar.showsCancelButton = true
+    }
+    
     func didDismissSearchController(_ searchController: UISearchController) {
         print("Cancelled Pressed")
         self.mapViewDelegate?.hideMap()
@@ -113,6 +117,7 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
         if let city = placemark.locality, let state = placemark.administrativeArea {
             annotation.subtitle = "\(city) \(state)"
         }
+        
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.003, 0.003) // The region
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
@@ -127,6 +132,8 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
         if matchingItems.count > 0 {
             let item = matchingItems[indexPath.row].placemark
             dropPinZoomIn(placemark: item)
+            imageryManager.lat = item.coordinate.latitude
+            imageryManager.lon = item.coordinate.latitude
             
         }
         
@@ -135,6 +142,21 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
     
 }
 
+extension EarthSearchDatasource {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "identifier")
+        
+        if annotationView == nil {
+            annotationView = LocationMapAnnotationView(annotation: annotation, reuseIdentifier: "identifier2")
+            
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        return annotationView
+    }
+}
 
 
 

@@ -65,5 +65,28 @@ class NASAClient: APIClientProtocol {
             }, completion: completion)
         }
     }
+    
+    
+    func parseEarthImagery(from feedType: NASADetail, completion: @escaping (Result<NASAEarthImagery?, APIError>) -> Void) {
+        let endpoint = feedType
+        let request = endpoint.earthRequest
+        
+        DispatchQueue.main.async {
+            self.fetch(with: request, decode: { (json) -> NASAEarthImagery? in
+                guard let earthImageryResult = json as? NASAEarthImagery else { return nil }
+                return earthImageryResult
+            }, completion: completion)
+        }
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
