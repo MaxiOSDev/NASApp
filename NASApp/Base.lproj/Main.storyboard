@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Shh-XL-kaB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Shh-XL-kaB">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -580,7 +580,7 @@
                         <segue destination="5zd-8p-vAk" kind="relationship" relationship="viewControllers" id="yrV-em-giM"/>
                         <segue destination="9vI-xU-ZM5" kind="relationship" relationship="viewControllers" id="jhU-fB-QVJ"/>
                         <segue destination="izJ-K4-Rak" kind="relationship" relationship="viewControllers" id="8Xx-Nj-Atj"/>
-                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="viewControllers" id="jn5-KW-tgC"/>
+                        <segue destination="l64-UE-A5J" kind="relationship" relationship="viewControllers" id="bLx-hO-pG3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7r-Ek-fob" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -588,21 +588,57 @@
             <point key="canvasLocation" x="-1908" y="-54"/>
         </scene>
         <!--Planet Controller-->
-        <scene sceneID="tXr-a1-R10">
+        <scene sceneID="mPu-df-5BN">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ARPlanetController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController id="l64-UE-A5J" customClass="ARPlanetController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IbY-CY-PpD">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
-                    <tabBarItem key="tabBarItem" title="" image="planetIcon" id="HYk-q4-7MH"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lag-Qc-NLj">
+                                <rect key="frame" x="0.0" y="20" width="768" height="955"/>
+                            </arscnView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-ND-CtV">
+                                <rect key="frame" x="0.0" y="20" width="768" height="29"/>
+                                <segments>
+                                    <segment title="Sun"/>
+                                    <segment title="Mercury"/>
+                                    <segment title="Venus"/>
+                                    <segment title="Earth"/>
+                                    <segment title="Mars"/>
+                                    <segment title="Jupitar"/>
+                                    <segment title="Saturn"/>
+                                    <segment title="Uranus"/>
+                                    <segment title="Neptune"/>
+                                    <segment title="Pluto"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="planetChosen:" destination="l64-UE-A5J" eventType="valueChanged" id="B0X-Pc-Uie"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fgd-Fr-0Qa" firstAttribute="bottom" secondItem="Lag-Qc-NLj" secondAttribute="bottom" id="3zQ-NE-6UC"/>
+                            <constraint firstItem="bSd-ND-CtV" firstAttribute="leading" secondItem="Fgd-Fr-0Qa" secondAttribute="leading" id="7Us-KK-r0G"/>
+                            <constraint firstItem="Fgd-Fr-0Qa" firstAttribute="trailing" secondItem="Lag-Qc-NLj" secondAttribute="trailing" id="GIq-bu-qml"/>
+                            <constraint firstItem="bSd-ND-CtV" firstAttribute="top" secondItem="Fgd-Fr-0Qa" secondAttribute="top" id="fui-eT-Acb"/>
+                            <constraint firstItem="Lag-Qc-NLj" firstAttribute="top" secondItem="Fgd-Fr-0Qa" secondAttribute="top" id="jbE-qN-DQE"/>
+                            <constraint firstItem="Lag-Qc-NLj" firstAttribute="leading" secondItem="Fgd-Fr-0Qa" secondAttribute="leading" id="vUf-vr-D4d"/>
+                            <constraint firstItem="Fgd-Fr-0Qa" firstAttribute="trailing" secondItem="bSd-ND-CtV" secondAttribute="trailing" id="vhR-tx-EB6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fgd-Fr-0Qa"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="planetIcon" id="chJ-dk-S1b"/>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="sceneView" destination="Lag-Qc-NLj" id="RdF-43-1bH"/>
+                        <outlet property="segmentedControl" destination="bSd-ND-CtV" id="CXn-cY-W4y"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZh-jG-hpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1908" y="724"/>
+            <point key="canvasLocation" x="-1886" y="688"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3CP-An-ewL">

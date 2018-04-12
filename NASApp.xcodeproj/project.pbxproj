@@ -30,6 +30,7 @@
 		FB8E679F207D2F670014DA12 /* LocationAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8E679E207D2F670014DA12 /* LocationAnnotationView.xib */; };
 		FB8E67A1207D33250014DA12 /* LocationAnnotatonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8E67A0207D33250014DA12 /* LocationAnnotatonView.swift */; };
 		FB8E67A3207D4BB30014DA12 /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8E67A2207D4BB30014DA12 /* LocationMapAnnotationView.swift */; };
+		FB8E67A9207F9E1D0014DA12 /* PlanetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8E67A8207F9E1D0014DA12 /* PlanetNode.swift */; };
 		FBD4B6022072661F00F9282F /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B6012072661F00F9282F /* Delegates.swift */; };
 		FBD4B60420727BFC00F9282F /* GalleryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B60320727BFC00F9282F /* GalleryPageController.swift */; };
 		FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9801D206D1A8E00890F24 /* AppDelegate.swift */; };
@@ -92,6 +93,7 @@
 		FB8E679E207D2F670014DA12 /* LocationAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAnnotationView.xib; sourceTree = "<group>"; };
 		FB8E67A0207D33250014DA12 /* LocationAnnotatonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotatonView.swift; sourceTree = "<group>"; };
 		FB8E67A2207D4BB30014DA12 /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
+		FB8E67A8207F9E1D0014DA12 /* PlanetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNode.swift; sourceTree = "<group>"; };
 		FBD4B6012072661F00F9282F /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		FBD4B60320727BFC00F9282F /* GalleryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPageController.swift; sourceTree = "<group>"; };
 		FBD9801A206D1A8E00890F24 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +194,22 @@
 			path = GalleryTab;
 			sourceTree = "<group>";
 		};
+		FB8E67A5207F9DAB0014DA12 /* ARPlanetTab */ = {
+			isa = PBXGroup;
+			children = (
+				FBD98021206D1A8E00890F24 /* ARPlanetController.swift */,
+			);
+			path = ARPlanetTab;
+			sourceTree = "<group>";
+		};
+		FB8E67A7207F9DEC0014DA12 /* SceneKitModels */ = {
+			isa = PBXGroup;
+			children = (
+				FB8E67A8207F9E1D0014DA12 /* PlanetNode.swift */,
+			);
+			path = SceneKitModels;
+			sourceTree = "<group>";
+		};
 		FBD4B6002072660800F9282F /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +272,7 @@
 				FB4C81CA2072977600A94D73 /* GalleryTab */,
 				FB13231D2076732E00437665 /* RoverTab */,
 				FB13232D207BB88D00437665 /* Eye-In-SkyTab */,
-				FBD98021206D1A8E00890F24 /* ARPlanetController.swift */,
+				FB8E67A5207F9DAB0014DA12 /* ARPlanetTab */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -290,6 +308,7 @@
 		FBD98051206D28BB00890F24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FB8E67A7207F9DEC0014DA12 /* SceneKitModels */,
 				FB2B4912206D5E6C0037AD8C /* CodableModels */,
 				FBD98058206D315C00890F24 /* CollectionViewModels */,
 			);
@@ -388,7 +407,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Max Ramirez";
 				TargetAttributes = {
 					FBD98019206D1A8E00890F24 = {
@@ -578,6 +597,7 @@
 				FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */,
 				FBD98043206D1BA300890F24 /* CDStack.swift in Sources */,
 				FBD98041206D1B5700890F24 /* CDModel.xcdatamodeld in Sources */,
+				FB8E67A9207F9E1D0014DA12 /* PlanetNode.swift in Sources */,
 				FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */,
 				FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */,
 				FB132358207BF0E600437665 /* NASAEarthImagery.swift in Sources */,
@@ -643,6 +663,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -650,6 +671,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -700,6 +722,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -707,6 +730,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
