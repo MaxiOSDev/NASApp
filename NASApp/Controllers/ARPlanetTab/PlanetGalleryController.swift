@@ -95,7 +95,13 @@ class PlanetGalleryController: UICollectionViewController {
 
 extension PlanetGalleryController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+     //   if segue.identifier == "showPlanetPhoto" {
+            if let cell = sender as? UICollectionViewCell, let indexPath = collectionView?.indexPath(for: cell), let pageViewController = segue.destination as? PlanetGalleryPageController {
+                
+                pageViewController.photoLinks = links //(galleryLinks?.collection.items)!
+                pageViewController.indexOfCurrentPhoto = indexPath.row
+            }
+      //  }
     }
 }
 

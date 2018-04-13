@@ -35,6 +35,9 @@
 		FBB242B92080F08500A072FD /* PlanetGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB242B82080F08500A072FD /* PlanetGalleryCell.swift */; };
 		FBB242BB2080F66800A072FD /* PlanetGalleryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB242BA2080F66800A072FD /* PlanetGalleryEndpoint.swift */; };
 		FBB242BD20810CCF00A072FD /* NASAPlanetGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB242BC20810CCF00A072FD /* NASAPlanetGallery.swift */; };
+		FBB242BF20812E5D00A072FD /* PlanetGalleryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB242BE20812E5D00A072FD /* PlanetGalleryPageController.swift */; };
+		FBB242C12081312100A072FD /* PlanetGalleryZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB242C02081312000A072FD /* PlanetGalleryZoomController.swift */; };
+		FBB242C320813AC900A072FD /* PlanetImageDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB242C220813AC900A072FD /* PlanetImageDetailController.swift */; };
 		FBD4B6022072661F00F9282F /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B6012072661F00F9282F /* Delegates.swift */; };
 		FBD4B60420727BFC00F9282F /* GalleryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4B60320727BFC00F9282F /* GalleryPageController.swift */; };
 		FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9801D206D1A8E00890F24 /* AppDelegate.swift */; };
@@ -102,6 +105,9 @@
 		FBB242B82080F08500A072FD /* PlanetGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetGalleryCell.swift; sourceTree = "<group>"; };
 		FBB242BA2080F66800A072FD /* PlanetGalleryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetGalleryEndpoint.swift; sourceTree = "<group>"; };
 		FBB242BC20810CCF00A072FD /* NASAPlanetGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAPlanetGallery.swift; sourceTree = "<group>"; };
+		FBB242BE20812E5D00A072FD /* PlanetGalleryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetGalleryPageController.swift; sourceTree = "<group>"; };
+		FBB242C02081312000A072FD /* PlanetGalleryZoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetGalleryZoomController.swift; sourceTree = "<group>"; };
+		FBB242C220813AC900A072FD /* PlanetImageDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetImageDetailController.swift; sourceTree = "<group>"; };
 		FBD4B6012072661F00F9282F /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		FBD4B60320727BFC00F9282F /* GalleryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPageController.swift; sourceTree = "<group>"; };
 		FBD9801A206D1A8E00890F24 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +215,9 @@
 			children = (
 				FBD98021206D1A8E00890F24 /* ARPlanetController.swift */,
 				FBB242B62080F05800A072FD /* PlanetGalleryController.swift */,
+				FBB242BE20812E5D00A072FD /* PlanetGalleryPageController.swift */,
+				FBB242C02081312000A072FD /* PlanetGalleryZoomController.swift */,
+				FBB242C220813AC900A072FD /* PlanetImageDetailController.swift */,
 			);
 			path = ARPlanetTab;
 			sourceTree = "<group>";
@@ -595,6 +604,7 @@
 				FB2B4917206D7EDE0037AD8C /* GalleryEndpoint.swift in Sources */,
 				FB2B4914206D5E830037AD8C /* NASAGallery.swift in Sources */,
 				FBD9804A206D1F4900890F24 /* EyeInSkyController.swift in Sources */,
+				FBB242BF20812E5D00A072FD /* PlanetGalleryPageController.swift in Sources */,
 				FB13231B2076588400437665 /* NASARoverCell.swift in Sources */,
 				FBD9805C206D353100890F24 /* GalleryHeaderView.swift in Sources */,
 				FBB242B92080F08500A072FD /* PlanetGalleryCell.swift in Sources */,
@@ -618,6 +628,8 @@
 				FB132358207BF0E600437665 /* NASAEarthImagery.swift in Sources */,
 				FBB242B72080F05800A072FD /* PlanetGalleryController.swift in Sources */,
 				FB8E67A3207D4BB30014DA12 /* LocationMapAnnotationView.swift in Sources */,
+				FBB242C320813AC900A072FD /* PlanetImageDetailController.swift in Sources */,
+				FBB242C12081312100A072FD /* PlanetGalleryZoomController.swift in Sources */,
 				FB132319207653CE00437665 /* RoverDataSource.swift in Sources */,
 				FBD98055206D28E700890F24 /* JSONDownloader.swift in Sources */,
 				FB1323232076874000437665 /* RoverZoomController.swift in Sources */,

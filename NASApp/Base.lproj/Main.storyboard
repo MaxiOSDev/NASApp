@@ -647,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZh-jG-hpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1121.09375" y="687.890625"/>
+            <point key="canvasLocation" x="-1132" y="1201"/>
         </scene>
         <!--Planet Gallery Controller-->
         <scene sceneID="ONJ-nK-N8s">
@@ -710,6 +710,7 @@
                                 <connections>
                                     <outlet property="imageTitleLabel" destination="ame-fq-ZSy" id="J2s-4H-ef4"/>
                                     <outlet property="imageView" destination="e9D-Ps-poE" id="cGR-q9-Oel"/>
+                                    <segue destination="mAQ-Bv-HLm" kind="show" identifier="" id="ToR-Rq-c4h"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -721,7 +722,15 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNO-zs-Qqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="688"/>
+            <point key="canvasLocation" x="-302" y="1201"/>
+        </scene>
+        <!--Planet Gallery Page Controller-->
+        <scene sceneID="Jne-vB-ctm">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mAQ-Bv-HLm" customClass="PlanetGalleryPageController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkZ-YQ-3VY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="1201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3CP-An-ewL">
@@ -853,7 +862,101 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JEH-Kx-aBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1886.71875" y="687.890625"/>
+            <point key="canvasLocation" x="-1909" y="1201"/>
+        </scene>
+        <!--Planet Gallery Zoom Controller-->
+        <scene sceneID="2wI-VL-I3x">
+            <objects>
+                <viewController storyboardIdentifier="PlanetGalleryZoomController" id="wEE-Yo-zdK" customClass="PlanetGalleryZoomController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N1K-mr-VfQ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ork-SG-7vp">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JIX-sr-tvg">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="s0o-FM-q4W" appends="YES" id="rs9-Pf-dNT"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JIX-sr-tvg" firstAttribute="leading" secondItem="ork-SG-7vp" secondAttribute="leading" id="2tB-Ms-3g0"/>
+                                    <constraint firstItem="JIX-sr-tvg" firstAttribute="top" secondItem="ork-SG-7vp" secondAttribute="top" id="3bx-fc-yb4"/>
+                                    <constraint firstItem="JIX-sr-tvg" firstAttribute="centerY" secondItem="ork-SG-7vp" secondAttribute="centerY" id="L7q-dh-Uw8"/>
+                                    <constraint firstAttribute="bottom" secondItem="JIX-sr-tvg" secondAttribute="bottom" id="PUI-bx-bme"/>
+                                    <constraint firstItem="JIX-sr-tvg" firstAttribute="centerX" secondItem="ork-SG-7vp" secondAttribute="centerX" id="hd7-Pj-6P5"/>
+                                    <constraint firstAttribute="trailing" secondItem="JIX-sr-tvg" secondAttribute="trailing" id="wiK-YK-dAC"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ork-SG-7vp" secondAttribute="trailing" id="4XR-hI-IlQ"/>
+                            <constraint firstItem="ork-SG-7vp" firstAttribute="top" secondItem="nFQ-yp-9b1" secondAttribute="top" id="ay8-u1-WqS"/>
+                            <constraint firstItem="ork-SG-7vp" firstAttribute="leading" secondItem="N1K-mr-VfQ" secondAttribute="leading" id="wFU-lq-GVX"/>
+                            <constraint firstItem="nFQ-yp-9b1" firstAttribute="bottom" secondItem="ork-SG-7vp" secondAttribute="bottom" id="x6l-G1-XUm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nFQ-yp-9b1"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="JIX-sr-tvg" id="7AT-SX-v2i"/>
+                        <outlet property="scrollView" destination="ork-SG-7vp" id="2aK-Kt-7cq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FEK-VM-BWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s0o-FM-q4W">
+                    <connections>
+                        <action selector="imageTapped:" destination="wEE-Yo-zdK" id="SwT-NZ-kAt"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1224" y="1201"/>
+        </scene>
+        <!--Planet Image Detail Controller-->
+        <scene sceneID="Mmj-rO-mAg">
+            <objects>
+                <viewController storyboardIdentifier="PlanetImageDetailController" id="Gpe-H3-Fkb" customClass="PlanetImageDetailController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LY1-Ni-v8R">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZH-Ys-08t">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9fK-2s-rJJ">
+                                <rect key="frame" x="0.0" y="876" width="768" height="148"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.2048908390410959" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EfW-1f-VuC" firstAttribute="trailing" secondItem="sZH-Ys-08t" secondAttribute="trailing" id="3AQ-3V-cEq"/>
+                            <constraint firstItem="sZH-Ys-08t" firstAttribute="top" secondItem="EfW-1f-VuC" secondAttribute="top" id="4JF-lD-c2Y"/>
+                            <constraint firstItem="sZH-Ys-08t" firstAttribute="leading" secondItem="EfW-1f-VuC" secondAttribute="leading" id="Dbi-gv-bQM"/>
+                            <constraint firstItem="EfW-1f-VuC" firstAttribute="bottom" secondItem="9fK-2s-rJJ" secondAttribute="bottom" id="ELN-Ou-nnG"/>
+                            <constraint firstItem="EfW-1f-VuC" firstAttribute="trailing" secondItem="9fK-2s-rJJ" secondAttribute="trailing" id="Gs3-Fh-Mx9"/>
+                            <constraint firstItem="9fK-2s-rJJ" firstAttribute="leading" secondItem="EfW-1f-VuC" secondAttribute="leading" id="hd4-yn-YpD"/>
+                            <constraint firstItem="EfW-1f-VuC" firstAttribute="bottom" secondItem="sZH-Ys-08t" secondAttribute="bottom" id="jfd-np-9df"/>
+                            <constraint firstItem="9fK-2s-rJJ" firstAttribute="top" secondItem="LY1-Ni-v8R" secondAttribute="top" constant="876" id="yts-5K-mai"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EfW-1f-VuC"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="sZH-Ys-08t" id="efd-JV-Jth"/>
+                        <outlet property="textView" destination="9fK-2s-rJJ" id="7Hk-sb-5ao"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4w-ya-0M7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410" y="1201"/>
         </scene>
     </scenes>
     <resources>
