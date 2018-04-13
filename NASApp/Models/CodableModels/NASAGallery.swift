@@ -15,6 +15,7 @@ enum GalleryImageState {
     case failed
 }
 
+
 struct NASAGalleryCollection: Codable {
     var collection: Collection
     struct Collection: Codable {
@@ -50,15 +51,21 @@ struct NASAGalleryLinks: Codable, Hashable {
 
 struct NASAGalleryData: Equatable {
     static func ==(lhs: NASAGalleryData, rhs: NASAGalleryData) -> Bool {
-        return lhs.photographer == rhs.photographer && lhs.secondaryCreator == rhs.secondaryCreator
+        return lhs.photographer == rhs.photographer && lhs.secondaryCreator == rhs.secondaryCreator && lhs.description == rhs.description && lhs.title == rhs.title
     }
-    
+    var description: String?
     var photographer: String?
     var secondaryCreator: String?
     
+    var title: String?
+
    private enum CodingKeys: String, CodingKey {
         case photographer = "photographer"
+        case description
         case secondaryCreator = "secondary_creator"
+    
+        case title
+
     }
 }
 
@@ -67,6 +74,8 @@ extension NASAGalleryData: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         photographer = try values.decodeIfPresent(String.self, forKey: .photographer)
         secondaryCreator = try values.decodeIfPresent(String.self, forKey: .secondaryCreator)
+        description = try values.decodeIfPresent(String.self, forKey: .description)
+        title = try values.decodeIfPresent(String.self, forKey: .title)
     }
 }
 
@@ -75,6 +84,8 @@ extension NASAGalleryData: Encodable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(photographer, forKey: .photographer)
         try container.encode(secondaryCreator, forKey: .secondaryCreator)
+        try container.encode(description, forKey: .description)
+        try container.encode(title, forKey: .title)
     }
 }
 

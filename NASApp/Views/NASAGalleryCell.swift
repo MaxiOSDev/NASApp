@@ -20,7 +20,7 @@ extension GalleryCellViewModel {
     init(link: NASAGalleryLinks, gallery: NASAGallery, data: NASAGalleryData) {
         self.galleryImage = gallery.galleryState == .downloaded ? gallery.image! : #imageLiteral(resourceName: "nasaLogo")
         
-        self.label = data.photographer ?? ""
+        self.label = data.title ?? ""
         self.detailLabel = data.secondaryCreator ?? ""
     }
 }

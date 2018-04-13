@@ -36,7 +36,7 @@ extension EarthImageryEndpoint {
 extension NASADetail: EarthImageryEndpoint {
     var earthPath: String {
         switch self {
-            case .gallery, .curiosity, .opportunity, .spirit: return ""
+            case .gallery, .curiosity, .opportunity, .spirit, .planetGallery: return ""
         case .earthImagery: return "/planetary/earth/imagery/"
         }
     }

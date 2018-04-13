@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81U-VZ-aTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="356"/>
+            <point key="canvasLocation" x="1104" y="246"/>
         </scene>
         <!--NASA Gallery-->
         <scene sceneID="ryv-bt-EHb">
@@ -580,14 +580,14 @@
                         <segue destination="5zd-8p-vAk" kind="relationship" relationship="viewControllers" id="yrV-em-giM"/>
                         <segue destination="9vI-xU-ZM5" kind="relationship" relationship="viewControllers" id="jhU-fB-QVJ"/>
                         <segue destination="izJ-K4-Rak" kind="relationship" relationship="viewControllers" id="8Xx-Nj-Atj"/>
-                        <segue destination="l64-UE-A5J" kind="relationship" relationship="viewControllers" id="bLx-hO-pG3"/>
+                        <segue destination="BiH-jN-aZG" kind="relationship" relationship="viewControllers" id="bLx-hO-pG3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7r-Ek-fob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1908" y="-54"/>
         </scene>
-        <!--Planet Controller-->
+        <!--Solar System-->
         <scene sceneID="mPu-df-5BN">
             <objects>
                 <viewController id="l64-UE-A5J" customClass="ARPlanetController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -596,10 +596,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lag-Qc-NLj">
-                                <rect key="frame" x="0.0" y="20" width="768" height="955"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                             </arscnView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-ND-CtV">
-                                <rect key="frame" x="0.0" y="20" width="768" height="29"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="29"/>
                                 <segments>
                                     <segment title="Sun"/>
                                     <segment title="Mercury"/>
@@ -630,15 +630,98 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fgd-Fr-0Qa"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="planetIcon" id="chJ-dk-S1b"/>
+                    <navigationItem key="navigationItem" title="Solar System" id="WMJ-nc-52E">
+                        <barButtonItem key="rightBarButtonItem" title="Images" id="9ki-xk-rdG">
+                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="getImages:" destination="l64-UE-A5J" id="4Kr-Az-H4W"/>
+                                <segue destination="5yk-Fv-ibc" kind="show" identifier="showPlanetImages" id="hQB-MZ-ka0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="imagesBarButton" destination="9ki-xk-rdG" id="deZ-4R-aJs"/>
                         <outlet property="sceneView" destination="Lag-Qc-NLj" id="RdF-43-1bH"/>
                         <outlet property="segmentedControl" destination="bSd-ND-CtV" id="CXn-cY-W4y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZh-jG-hpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1886" y="688"/>
+            <point key="canvasLocation" x="-1121.09375" y="687.890625"/>
+        </scene>
+        <!--Planet Gallery Controller-->
+        <scene sceneID="ONJ-nK-N8s">
+            <objects>
+                <collectionViewController id="5yk-Fv-ibc" customClass="PlanetGalleryController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ueK-2G-IUe">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6ID-AE-fpU">
+                            <size key="itemSize" width="350" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlanetGalleryCell" id="FBX-1V-8P4" customClass="PlanetGalleryCell" customModule="NASApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e9D-Ps-poE">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRo-5G-Uc3">
+                                            <rect key="frame" x="0.0" y="160" width="350" height="40"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Holder Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ame-fq-ZSy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.20093107876712329" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="3jv-gg-Npu"/>
+                                                <constraint firstItem="ame-fq-ZSy" firstAttribute="top" secondItem="qRo-5G-Uc3" secondAttribute="top" id="8kS-ML-QXS"/>
+                                                <constraint firstAttribute="bottom" secondItem="ame-fq-ZSy" secondAttribute="bottom" id="9of-pc-xg0"/>
+                                                <constraint firstItem="ame-fq-ZSy" firstAttribute="leading" secondItem="qRo-5G-Uc3" secondAttribute="leading" id="iNM-KF-V2U"/>
+                                                <constraint firstAttribute="trailing" secondItem="ame-fq-ZSy" secondAttribute="trailing" id="yxF-7f-Ak9"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="e9D-Ps-poE" secondAttribute="trailing" id="2Db-Fr-6MB"/>
+                                    <constraint firstItem="e9D-Ps-poE" firstAttribute="leading" secondItem="FBX-1V-8P4" secondAttribute="leading" id="ERB-IW-mY9"/>
+                                    <constraint firstItem="e9D-Ps-poE" firstAttribute="top" secondItem="FBX-1V-8P4" secondAttribute="top" id="IOa-Y8-mjR"/>
+                                    <constraint firstAttribute="bottom" secondItem="e9D-Ps-poE" secondAttribute="bottom" id="RCS-5l-6Al"/>
+                                    <constraint firstItem="qRo-5G-Uc3" firstAttribute="top" secondItem="FBX-1V-8P4" secondAttribute="top" priority="250" constant="160" id="Rdw-qQ-NiF"/>
+                                    <constraint firstAttribute="bottom" secondItem="qRo-5G-Uc3" secondAttribute="bottom" id="XiX-OR-c0v"/>
+                                    <constraint firstItem="qRo-5G-Uc3" firstAttribute="leading" secondItem="FBX-1V-8P4" secondAttribute="leading" id="kAP-AI-vz9"/>
+                                    <constraint firstAttribute="trailing" secondItem="qRo-5G-Uc3" secondAttribute="trailing" id="t1v-WT-rRQ"/>
+                                </constraints>
+                                <size key="customSize" width="350" height="200"/>
+                                <connections>
+                                    <outlet property="imageTitleLabel" destination="ame-fq-ZSy" id="J2s-4H-ef4"/>
+                                    <outlet property="imageView" destination="e9D-Ps-poE" id="cGR-q9-Oel"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="5yk-Fv-ibc" id="Bkc-Gg-Xev"/>
+                            <outlet property="delegate" destination="5yk-Fv-ibc" id="YfJ-N0-CqB"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNO-zs-Qqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-388" y="688"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3CP-An-ewL">
@@ -748,7 +831,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oa5-2z-iD2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-750" y="355.6640625"/>
+            <point key="canvasLocation" x="364" y="246"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mdf-Su-S9z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BiH-jN-aZG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="planetIcon" id="chJ-dk-S1b"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P2V-Wx-Io5">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="l64-UE-A5J" kind="relationship" relationship="rootViewController" id="Ud9-gU-F3W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JEH-Kx-aBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1886.71875" y="687.890625"/>
         </scene>
     </scenes>
     <resources>
@@ -757,5 +862,5 @@
         <image name="icon" width="48" height="48"/>
         <image name="planetIcon" width="50" height="50"/>
     </resources>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

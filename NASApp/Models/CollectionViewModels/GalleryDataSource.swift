@@ -45,6 +45,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
             photos.append(URL(string: gallery.href!)!)
 
             for data in image.data {
+                print(data)
              let viewModel = GalleryCellViewModel(link: image, gallery: gallery , data: data) //GalleryCellViewModel(image: image)
                 galleryCell.configure(with: viewModel)
 

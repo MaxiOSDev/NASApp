@@ -66,7 +66,6 @@ class NASAClient: APIClientProtocol {
         }
     }
     
-    
     func parseEarthImagery(from feedType: NASADetail, completion: @escaping (Result<NASAEarthImagery?, APIError>) -> Void) {
         let endpoint = feedType
         let request = endpoint.earthRequest
@@ -75,6 +74,18 @@ class NASAClient: APIClientProtocol {
             self.fetch(with: request, decode: { (json) -> NASAEarthImagery? in
                 guard let earthImageryResult = json as? NASAEarthImagery else { return nil }
                 return earthImageryResult
+            }, completion: completion)
+        }
+    }
+    
+    func parsePlanetGallery(from feedType: NASADetail, completion: @escaping (Result<NASAPlanetCollection?, APIError>) -> Void) {
+        let endpoint = feedType
+        let request = endpoint.planetGalleryRequest
+        
+        DispatchQueue.main.async {
+            self.fetch(with: request, decode: { (json) -> NASAPlanetCollection? in
+                guard let planetGalleryFeedResult = json as? NASAPlanetCollection else { return nil }
+                return planetGalleryFeedResult
             }, completion: completion)
         }
     }

@@ -19,13 +19,13 @@ extension GalleryEndpoint {
         return "https://images-api.nasa.gov"
     }
     
-    var search: String {
-        return "search"
-    }
+//    var search: String {
+//        return "search"
+//    }
     
-    var center: String {
-        return "center"
-    }
+//    var center: String {
+//        return "center"
+//    }
     
     var urlComponents: URLComponents {
         var components = URLComponents(string: base)!
@@ -38,7 +38,7 @@ extension GalleryEndpoint {
     
     var request: URLRequest {
         let url = urlComponents.url!
-      //  print("URL within GalleryEndpoint: \(url)")
+        print("URL within GalleryEndpoint: \(url)")
         return URLRequest(url: url)
     }
 }
@@ -49,13 +49,14 @@ enum NASADetail {
     case opportunity
     case spirit
     case earthImagery
+    case planetGallery
 }
 
 extension NASADetail: GalleryEndpoint {
     var path: String {
         switch self {
         case .gallery: return "/search"
-        case .curiosity, .opportunity, .spirit, .earthImagery: return ""
+        case .curiosity, .opportunity, .spirit, .earthImagery, .planetGallery: return ""
         }
     }
     
