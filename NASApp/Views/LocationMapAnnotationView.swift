@@ -21,13 +21,13 @@ class LocationMapAnnotationView: MKAnnotationView {
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.canShowCallout = false
-        self.image = #imageLiteral(resourceName: "icon")
+        self.image = #imageLiteral(resourceName: "pin") // There is an image literal here
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.canShowCallout = false
-        self.image = #imageLiteral(resourceName: "icon")
+        self.image = #imageLiteral(resourceName: "pin") // There is an image literal here
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

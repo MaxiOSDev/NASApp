@@ -36,6 +36,9 @@ class PlanetImageDetailController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func dismissTap(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 
 }

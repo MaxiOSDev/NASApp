@@ -352,6 +352,7 @@
                                         </constraints>
                                         <size key="customSize" width="350" height="200"/>
                                         <connections>
+                                            <outlet property="imageID" destination="e6L-2l-NhJ" id="aSq-U4-0aw"/>
                                             <outlet property="imageView" destination="3W4-Aw-N4J" id="Hs0-cY-N7S"/>
                                             <outlet property="roverSolLabel" destination="1jM-x3-WzA" id="DWp-Nl-LtK"/>
                                             <segue destination="NTg-9u-Ca5" kind="show" identifier="showRover" id="ocF-Ex-a58"/>
@@ -924,8 +925,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZH-Ys-08t">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZH-Ys-08t">
                                 <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7X6-av-C1H" appends="YES" id="J3G-eY-Ks4"/>
+                                </connections>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9fK-2s-rJJ">
                                 <rect key="frame" x="0.0" y="876" width="768" height="148"/>
@@ -955,8 +960,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4w-ya-0M7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7X6-av-C1H">
+                    <connections>
+                        <action selector="dismissTap:" destination="Gpe-H3-Fkb" id="dDU-hb-DpO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2410" y="1201"/>
+            <point key="canvasLocation" x="2023" y="1201"/>
         </scene>
     </scenes>
     <resources>

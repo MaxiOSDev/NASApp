@@ -24,6 +24,8 @@ class RoverDataSource: NSObject, UICollectionViewDataSource {
     
     var segmentedControlIndex: Int?
     
+    var pageNumber: Int?
+    
     init(images: [Photo], collectionView: UICollectionView) {
         //self.images = images
         self.collectionView = collectionView
@@ -66,26 +68,41 @@ class RoverDataSource: NSObject, UICollectionViewDataSource {
             let request = makeRequest(with: URL(string: image.imgSrc)!)
             nukeManager.loadImage(with: request, into: roverCell.imageView)
             roverCell.roverSolLabel.text = image.earthDate
+            roverCell.imageID.text = "\(image.id)"
         } else if segmentedControlIndex == 1 {
             let image = opporunityImages![indexPath.row]
             let request = makeRequest(with: URL(string: image.imgSrc)!)
             nukeManager.loadImage(with: request, into: roverCell.imageView)
             roverCell.roverSolLabel.text = image.earthDate
+            roverCell.imageID.text = "\(image.id)"
         } else {
             let image = spiritImages![indexPath.row]
             let request = makeRequest(with: URL(string: image.imgSrc)!)
             nukeManager.loadImage(with: request, into: roverCell.imageView)
             roverCell.roverSolLabel.text = image.earthDate
+            roverCell.imageID.text = "\(image.id)"
         }
 
         return roverCell
     }
     
-    func update(with roverImages: [Photo], _ opportunityImages: [Photo], _ spiritImages: [Photo]) {
+    func updateCuriosity(with roverImages: [Photo]?) {
         self.curiosityImages = roverImages
-        self.opporunityImages = opportunityImages
-        self.spiritImages = spiritImages
     }
+    
+    func updateOpportunity(with roverImages: [Photo]?) {
+        self.opporunityImages = roverImages
+    }
+    
+    func updateSpirit(with roverImages: [Photo]?) {
+        self.spiritImages = roverImages
+    }
+    
+//    func update(with roverImages: [Photo]?, _ opportunityImages: [Photo]?, _ spiritImages: [Photo]?) {
+//        self.curiosityImages = roverImages
+//        self.opporunityImages = opportunityImages
+//        self.spiritImages = spiritImages
+//    }
     
     func makeRequest(with url: URL) -> Request {
         return Request(url: url)

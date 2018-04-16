@@ -11,6 +11,7 @@ import UIKit
 class NASARoverCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var roverSolLabel: UILabel!
+    @IBOutlet weak var imageID: UILabel!
     
     var images: Photo?
     

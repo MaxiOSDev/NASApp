@@ -15,6 +15,12 @@ class PlanetGalleryController: UICollectionViewController {
     let nukeManager = Nuke.Manager.shared
     var photos = [URL]()
     
+    var chosenPlanet: String? {
+        didSet {
+            navigationItem.title = chosenPlanet
+        }
+    }
+
     var galleryImage: NASAGalleryLinks? {
         didSet {
             update(with: (galleryImage?.links)!)
@@ -31,6 +37,7 @@ class PlanetGalleryController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let screenWidth = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
@@ -95,13 +102,11 @@ class PlanetGalleryController: UICollectionViewController {
 
 extension PlanetGalleryController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     //   if segue.identifier == "showPlanetPhoto" {
             if let cell = sender as? UICollectionViewCell, let indexPath = collectionView?.indexPath(for: cell), let pageViewController = segue.destination as? PlanetGalleryPageController {
                 
                 pageViewController.photoLinks = links //(galleryLinks?.collection.items)!
                 pageViewController.indexOfCurrentPhoto = indexPath.row
             }
-      //  }
     }
 }
 

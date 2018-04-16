@@ -26,13 +26,12 @@ class RoverMakerController: UIViewController {
     lazy var dataSource: RoverDataSource = {
        return RoverDataSource(images: [], collectionView: collectionView)
     }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.segmentedControlIndex = 0
         curiosityParse()
-        
-        
         roverSegmentedControl.selectedSegmentIndex = 0
         collectionView.dataSource = dataSource
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -42,6 +41,7 @@ class RoverMakerController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +56,12 @@ class RoverMakerController: UIViewController {
             collectionView.reloadData()
         } else if sender.selectedSegmentIndex == 1 {
             print("Opporunity")
+            
             dataSource.segmentedControlIndex = 1
             collectionView.reloadData()
         } else if sender.selectedSegmentIndex == 2 {
             print("Spirit")
+            
             dataSource.segmentedControlIndex = 2
             collectionView.reloadData()
         }
@@ -74,7 +76,8 @@ class RoverMakerController: UIViewController {
                 print("Curiosity Count \(collectionResults.photos.count)")
                 self.roverImage.append(collectionResult!)
                 print("RoverImage Count: \(self.roverImage.count)")
-                self.opportunityParse()
+
+                self.passCuriosityData()
             case .failure(let error):
                 print("Error for results data \(error)")
             }
@@ -89,7 +92,8 @@ class RoverMakerController: UIViewController {
                 print("Opportunity Count \(collectionResults.photos.count)")
                 self.roverImage.append(collectionResult!) //collectionResults
                 print("RoverImage Count: \(self.roverImage.count)")
-                self.spiritParse()
+               self.passOpportunityData()
+                
             case .failure(let error):
                 print("Error for results data \(error)")
             }
@@ -104,18 +108,34 @@ class RoverMakerController: UIViewController {
                 print("Spirit Count \(collectionResults.photos.count)")
                 self.roverImage.append(collectionResult!) //collectionResults
                 print("RoverImage Count: \(self.roverImage.count)")
-                passRoverData()
+                self.passSpiritData()
             case .failure(let error):
                 print("Error for results data \(error)")
             }
         }
-        
-        func passRoverData() {
-            print(roverImage.count)
-            dataSource.update(with: self.roverImage[0].photos, self.roverImage[1].photos, self.roverImage[2].photos)
-            collectionView.reloadData()
-        }
     }
+    
+    func passCuriosityData() {
+        print(roverImage.count)
+        let curiosityPhotos: [Photo]? = self.roverImage[0].photos
+        dataSource.updateCuriosity(with: curiosityPhotos)
+        collectionView.reloadData()
+        opportunityParse()
+    }
+    
+    func passOpportunityData() {
+        let opporunityPhotos: [Photo]? = self.roverImage[1].photos
+        dataSource.updateOpportunity(with: opporunityPhotos)
+        collectionView.reloadData()
+        spiritParse()
+    }
+    
+    func passSpiritData() {
+        let spiritPhotos: [Photo]? = self.roverImage[2].photos
+        dataSource.updateSpirit(with: spiritPhotos)
+        collectionView.reloadData()
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRover" {

@@ -31,6 +31,7 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
     
     let client = NASAClient()
     let dataManager = PlanetGalleryData.sharedInstance
+    var chosenPlanet: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +52,8 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         newEarth.position = position
         sceneView.scene.rootNode.addChildNode(newEarth)
         segmentedControl.selectedSegmentIndex = 3
+        dataManager.planet = "earth"
+        chosenPlanet = "Earth"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,51 +83,61 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
             newSun.position = position
             sceneView.scene.rootNode.addChildNode(newSun)
             dataManager.planet = "sun"
+            chosenPlanet = "Sun"
         } else if sender.selectedSegmentIndex == 1 {
             
             newMercury.position = position
             sceneView.scene.rootNode.addChildNode(newMercury)
             dataManager.planet = "mercury"
+            chosenPlanet = "Mercury"
         } else if sender.selectedSegmentIndex == 2 {
             
             newVenus.position = position
             sceneView.scene.rootNode.addChildNode(newVenus)
             dataManager.planet = "venus"
+            chosenPlanet = "Venus"
         } else if sender.selectedSegmentIndex == 3 {
             
             newEarth.position = position
             sceneView.scene.rootNode.addChildNode(newEarth)
             dataManager.planet = "earth"
+            chosenPlanet = "Earth"
         } else if sender.selectedSegmentIndex == 4 {
             
             newMars.position = position
             sceneView.scene.rootNode.addChildNode(newMars)
             dataManager.planet = "mars"
+            chosenPlanet = "Mars"
         } else if sender.selectedSegmentIndex == 5 {
             
             newJupitar.position = position
             sceneView.scene.rootNode.addChildNode(newJupitar)
             dataManager.planet = "jupiter"
+            chosenPlanet = "Jupiter"
         } else if sender.selectedSegmentIndex == 6 {
             
             newSaturn.position = position
             sceneView.scene.rootNode.addChildNode(newSaturn)
             dataManager.planet = "saturn"
+            chosenPlanet = "Saturn"
         } else if sender.selectedSegmentIndex == 7 {
             
             newUranus.position = position
             sceneView.scene.rootNode.addChildNode(newUranus)
             dataManager.planet = "uranus"
+            chosenPlanet = "Uranus"
         } else if sender.selectedSegmentIndex == 8 {
             
             newNeptune.position = position
             sceneView.scene.rootNode.addChildNode(newNeptune)
             dataManager.planet = "neptune"
+            chosenPlanet = "Neptune"
         } else if sender.selectedSegmentIndex == 9 {
             
             newPluto.position = position
             sceneView.scene.rootNode.addChildNode(newPluto)
             dataManager.planet = "pluto"
+            chosenPlanet = "Pluto"
         }
     }
     
@@ -267,6 +280,8 @@ extension ARPlanetController {
                             }
                         }
                         
+                        print("Before chosen planet \(self.chosenPlanet)")
+                        planetGalleryVC.chosenPlanet = self.chosenPlanet!
                         print(collectionResults.collection.items.count)
                         collectionResults.collection.items.removeAll()
                         collectionResults.collection.items = linkArray
