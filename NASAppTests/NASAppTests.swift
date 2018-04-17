@@ -65,15 +65,9 @@ class NASAppTests: XCTestCase {
     
     // Testing parse of all Rovers Endpoints
     func testMarsRoversJSONFetch() {
-        
-        
-        
         fetchCuritosityCollection()
         fetchOpportunityCollection()
         fetchSpiritCollection()
-        
-        
-        
     }
     
     // Curiosity Test Helper
@@ -175,6 +169,180 @@ class NASAppTests: XCTestCase {
             }
         }
     }
+    
+    func testPlanetGalleryFetch() {
+        fetchSun()
+        fetchMercury()
+        fetchVenus()
+        fetchEarth()
+        fetchMars()
+        fetchJupiter()
+        fetchSaturn()
+        fetchUranus()
+        fetchNeptune()
+        fetchPluto()
+    }
+    
+    func fetchSun() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "sun"
+        XCTAssert(planetCollection.count == 0, "Sun collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchMercury() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "mercury"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchVenus() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "venus"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchEarth() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "earth"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchMars() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "mars"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchJupiter() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "jupiter"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchSaturn() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "saturn"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchUranus() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "uranus"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchNeptune() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "neptune"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
+    func fetchPluto() {
+        var planetCollection = [NASAGalleryLinks]()
+        PlanetGalleryData.sharedInstance.planet = "pluto"
+        XCTAssert(planetCollection.count == 0, "Planet collection array count is greater than 0")
+        client.parsePlanetGallery(from: .planetGallery) { result in
+            switch result {
+            case .success(let planetResult):
+                guard let planetResults = planetResult else { return }
+                planetCollection = planetResults.collection.items
+                XCTAssert(planetCollection.count > 0, "Planet Collection is not greater than 0")
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+    
 }
 
 
