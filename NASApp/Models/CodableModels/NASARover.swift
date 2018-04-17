@@ -52,28 +52,21 @@ struct PhotoCamera: Codable {
     }
 }
 
-
 struct Rover: Codable {
     let id: Int
-    //let name: RoverName
     let landingDate: String
     let launchDate: String
-    //let status: Status
     let maxSol: Int
     let maxDate: String
     let totalPhotos: Int
-    //let cameras: [CameraElement]
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        //case name = "name"
         case landingDate = "landing_date"
         case launchDate = "launch_date"
-        //case status = "status"
         case maxSol = "max_sol"
         case maxDate = "max_date"
         case totalPhotos = "total_photos"
-       // case cameras = "cameras"
     }
 }
 

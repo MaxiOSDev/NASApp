@@ -18,7 +18,7 @@ class EyeInSkyController: UIViewController, MapViewDelegate {
     
     lazy var searchController: UISearchController = {
        return UISearchController(searchResultsController: nil)
-    }() //UISearchController(searchResultsController: nil)
+    }()
     
     lazy var dataSource: EarthSearchDatasource = {
        return EarthSearchDatasource(tableView: tableView, searchController: searchController, mapView: mapView, container: mapContainerView)
@@ -30,7 +30,7 @@ class EyeInSkyController: UIViewController, MapViewDelegate {
         tableView.delegate = dataSource
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-       // searchController.searchBar.searchBarStyle = .default
+
         searchController.searchResultsUpdater = dataSource
         searchController.delegate = dataSource
         self.navigationItem.titleView = searchController.searchBar

@@ -42,9 +42,6 @@ class RoverPageController: UIPageViewController {
         navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.present(navController, animated: true, completion: nil)
     }
-    
-    
-    
 }
 
 extension RoverPageController: UIPageViewControllerDataSource {

@@ -47,9 +47,6 @@ class EarthSearchDatasource: NSObject, UITableViewDataSource, UITableViewDelegat
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = parseAddress(selectedItem: item)
             
-           
-          //  print(cell.detailTextLabel?.text)
-            
         }
         
         return cell
@@ -146,10 +143,6 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
                 case .success(let imageryResults):
                     guard let imageryResult = imageryResults else { return }
                     self.imageryManager.date = imageryResult.date
-                    print("Imagery Date: \(imageryResult.date)")
-                    print("Imagery URL: \(imageryResult.url)")
-                    print("Imagery Name: \(item.name)")
-                    print("Imagery address: \(self.parseAddress(selectedItem: item))")
                     self.imageryManager.url = imageryResult.url
                     self.imageryManager.name = item.name
                     self.imageryManager.address = self.parseAddress(selectedItem: item)

@@ -23,7 +23,7 @@ class GalleryZoomController: UIViewController, UIScrollViewDelegate {
     var nukeManager = Nuke.Manager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Photo that is in GalleryZoomController: \(photo)")
+
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 10.0

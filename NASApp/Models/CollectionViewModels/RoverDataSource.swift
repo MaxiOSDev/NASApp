@@ -27,7 +27,6 @@ class RoverDataSource: NSObject, UICollectionViewDataSource {
     var pageNumber: Int?
     
     init(images: [Photo], collectionView: UICollectionView) {
-        //self.images = images
         self.collectionView = collectionView
         super.init()
     }
@@ -42,22 +41,17 @@ class RoverDataSource: NSObject, UICollectionViewDataSource {
             if let images = curiosityImages {
                 return images.count
             }
-           // return (curiosityImages?.count)!
         } else if segmentedControlIndex == 1 {
             if let images = opporunityImages {
                 return images.count
             }
-          //  return (opporunityImages?.count)!
         } else if segmentedControlIndex == 2 {
             if let images = spiritImages {
                 return images.count
             }
-          //  return (spiritImages?.count)!
         }
         
         return 0
-        
-       // return curiosityImages?.count ?? opporunityImages?.count ?? spiritImages?.count ?? 0 //images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,12 +91,6 @@ class RoverDataSource: NSObject, UICollectionViewDataSource {
     func updateSpirit(with roverImages: [Photo]?) {
         self.spiritImages = roverImages
     }
-    
-//    func update(with roverImages: [Photo]?, _ opportunityImages: [Photo]?, _ spiritImages: [Photo]?) {
-//        self.curiosityImages = roverImages
-//        self.opporunityImages = opportunityImages
-//        self.spiritImages = spiritImages
-//    }
     
     func makeRequest(with url: URL) -> Request {
         return Request(url: url)

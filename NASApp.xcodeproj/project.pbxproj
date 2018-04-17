@@ -47,8 +47,6 @@
 		FBD98027206D1A8E00890F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBD98026206D1A8E00890F24 /* Assets.xcassets */; };
 		FBD9802A206D1A8E00890F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD98028206D1A8E00890F24 /* LaunchScreen.storyboard */; };
 		FBD98035206D1A8F00890F24 /* NASAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98034206D1A8F00890F24 /* NASAppTests.swift */; };
-		FBD98041206D1B5700890F24 /* CDModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBD9803F206D1B5700890F24 /* CDModel.xcdatamodeld */; };
-		FBD98043206D1BA300890F24 /* CDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98042206D1BA300890F24 /* CDStack.swift */; };
 		FBD98046206D1E3700890F24 /* GalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98045206D1E3700890F24 /* GalleryController.swift */; };
 		FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98047206D1EB200890F24 /* RoverMakerController.swift */; };
 		FBD9804A206D1F4900890F24 /* EyeInSkyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98049206D1F4900890F24 /* EyeInSkyController.swift */; };
@@ -57,7 +55,6 @@
 		FBD98055206D28E700890F24 /* JSONDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98054206D28E700890F24 /* JSONDownloader.swift */; };
 		FBD98057206D290B00890F24 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98056206D290B00890F24 /* APIError.swift */; };
 		FBD9805A206D317D00890F24 /* GalleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98059206D317D00890F24 /* GalleryDataSource.swift */; };
-		FBD9805C206D353100890F24 /* GalleryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9805B206D353100890F24 /* GalleryHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,8 +118,6 @@
 		FBD98030206D1A8F00890F24 /* NASAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NASAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD98034206D1A8F00890F24 /* NASAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAppTests.swift; sourceTree = "<group>"; };
 		FBD98036206D1A8F00890F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBD98040206D1B5700890F24 /* CDModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDModel.xcdatamodel; sourceTree = "<group>"; };
-		FBD98042206D1BA300890F24 /* CDStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDStack.swift; sourceTree = "<group>"; };
 		FBD98045206D1E3700890F24 /* GalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; };
 		FBD98047206D1EB200890F24 /* RoverMakerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverMakerController.swift; sourceTree = "<group>"; };
 		FBD98049206D1F4900890F24 /* EyeInSkyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeInSkyController.swift; sourceTree = "<group>"; };
@@ -131,7 +126,6 @@
 		FBD98054206D28E700890F24 /* JSONDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDownloader.swift; sourceTree = "<group>"; };
 		FBD98056206D290B00890F24 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		FBD98059206D317D00890F24 /* GalleryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataSource.swift; sourceTree = "<group>"; };
-		FBD9805B206D353100890F24 /* GalleryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,8 +265,6 @@
 				FBD98026206D1A8E00890F24 /* Assets.xcassets */,
 				FBD98028206D1A8E00890F24 /* LaunchScreen.storyboard */,
 				FBD9802B206D1A8E00890F24 /* Info.plist */,
-				FBD9803F206D1B5700890F24 /* CDModel.xcdatamodeld */,
-				FBD98042206D1BA300890F24 /* CDStack.swift */,
 			);
 			path = NASApp;
 			sourceTree = "<group>";
@@ -300,7 +292,6 @@
 		FBD9804B206D272C00890F24 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FBD9805B206D353100890F24 /* GalleryHeaderView.swift */,
 				FBD9804C206D276400890F24 /* NASAGalleryCell.swift */,
 				FB13231A2076588400437665 /* NASARoverCell.swift */,
 				FBB242B82080F08500A072FD /* PlanetGalleryCell.swift */,
@@ -606,7 +597,6 @@
 				FBD9804A206D1F4900890F24 /* EyeInSkyController.swift in Sources */,
 				FBB242BF20812E5D00A072FD /* PlanetGalleryPageController.swift in Sources */,
 				FB13231B2076588400437665 /* NASARoverCell.swift in Sources */,
-				FBD9805C206D353100890F24 /* GalleryHeaderView.swift in Sources */,
 				FBB242B92080F08500A072FD /* PlanetGalleryCell.swift in Sources */,
 				FBD9805A206D317D00890F24 /* GalleryDataSource.swift in Sources */,
 				FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */,
@@ -620,8 +610,6 @@
 				FB13231F2076735600437665 /* RoverPageController.swift in Sources */,
 				FBD9804D206D276400890F24 /* NASAGalleryCell.swift in Sources */,
 				FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */,
-				FBD98043206D1BA300890F24 /* CDStack.swift in Sources */,
-				FBD98041206D1B5700890F24 /* CDModel.xcdatamodeld in Sources */,
 				FB8E67A9207F9E1D0014DA12 /* PlanetNode.swift in Sources */,
 				FBD9801E206D1A8E00890F24 /* AppDelegate.swift in Sources */,
 				FBD98048206D1EB300890F24 /* RoverMakerController.swift in Sources */,
@@ -887,19 +875,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FBD9803F206D1B5700890F24 /* CDModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FBD98040206D1B5700890F24 /* CDModel.xcdatamodel */,
-			);
-			currentVersion = FBD98040206D1B5700890F24 /* CDModel.xcdatamodel */;
-			path = CDModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FBD98012206D1A8D00890F24 /* Project object */;
 }

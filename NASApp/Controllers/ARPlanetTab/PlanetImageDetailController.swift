@@ -39,10 +39,6 @@ class PlanetImageDetailController: UIViewController {
     @IBAction func dismissTap(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-
 }
 
-extension PlanetImageDetailController: UITextViewDelegate {
-    
-}
+extension PlanetImageDetailController: UITextViewDelegate {}

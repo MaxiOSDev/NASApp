@@ -23,7 +23,6 @@ extension RoverEndpoint {
         var components = URLComponents(string: roverBase)!
         components.path = roverPath
         components.queryItems = roverQueryItems
-       // print("Gallery Query Items \(roverQueryItems)")
         return components
     }
     
@@ -49,10 +48,8 @@ extension NASADetail: RoverEndpoint {
         var result = [URLQueryItem]()
         let sol = URLQueryItem(name: "sol", value: "10")
         let API_KEY = URLQueryItem(name: "api_key", value: "FibfgEAUvuS0knr5woA5aNckz4QWk12iB5KHkBKr")
-        //let page = URLQueryItem(name: "page", value: "1")
         result.append(sol)
         result.append(API_KEY)
-        //result.append(page)
         return result
     }
 }

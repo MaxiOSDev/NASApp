@@ -9,13 +9,6 @@
 import Foundation
 import UIKit
 
-enum GalleryImageState {
-    case placeholder
-    case downloaded
-    case failed
-}
-
-
 struct NASAGalleryCollection: Codable {
     var collection: Collection
     struct Collection: Codable {
@@ -91,13 +84,12 @@ extension NASAGalleryData: Encodable {
 
 struct NASAGallery: Equatable {
     static func ==(lhs: NASAGallery, rhs: NASAGallery) -> Bool {
-        return lhs.data == rhs.data && lhs.image == rhs.image && lhs.href == rhs.href && lhs.galleryState == rhs.galleryState
+        return lhs.data == rhs.data && lhs.image == rhs.image && lhs.href == rhs.href
     }
     
     var href: String?
     var image: UIImage?
     var data: NASAGalleryData?
-    var galleryState = GalleryImageState.placeholder
    private enum CodingKeys: String, CodingKey {
         case href
     }

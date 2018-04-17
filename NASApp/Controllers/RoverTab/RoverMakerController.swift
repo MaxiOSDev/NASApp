@@ -43,17 +43,12 @@ class RoverMakerController: UIViewController {
 
     @IBAction func roverSelected(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            print("Curiosity")
             dataSource.segmentedControlIndex = 0
             collectionView.reloadData()
         } else if sender.selectedSegmentIndex == 1 {
-            print("Opporunity")
-            
             dataSource.segmentedControlIndex = 1
             collectionView.reloadData()
         } else if sender.selectedSegmentIndex == 2 {
-            print("Spirit")
-            
             dataSource.segmentedControlIndex = 2
             collectionView.reloadData()
         }
@@ -65,10 +60,7 @@ class RoverMakerController: UIViewController {
             switch result {
             case .success(let collectionResult):
                 guard let collectionResults = collectionResult else { return }
-                print("Curiosity Count \(collectionResults.photos.count)")
                 self.roverImage.append(collectionResult!)
-                print("RoverImage Count: \(self.roverImage.count)")
-
                 self.passCuriosityData()
             case .failure(let error):
                 print("Error for results data \(error)")
@@ -81,9 +73,7 @@ class RoverMakerController: UIViewController {
             switch result {
             case .success(let collectionResult):
                 guard let collectionResults = collectionResult else { return }
-                print("Opportunity Count \(collectionResults.photos.count)")
                 self.roverImage.append(collectionResult!) //collectionResults
-                print("RoverImage Count: \(self.roverImage.count)")
                self.passOpportunityData()
                 
             case .failure(let error):
@@ -97,9 +87,7 @@ class RoverMakerController: UIViewController {
             switch result {
             case .success(let collectionResult):
                 guard let collectionResults = collectionResult else { return }
-                print("Spirit Count \(collectionResults.photos.count)")
                 self.roverImage.append(collectionResult!) //collectionResults
-                print("RoverImage Count: \(self.roverImage.count)")
                 self.passSpiritData()
             case .failure(let error):
                 print("Error for results data \(error)")
@@ -139,7 +127,6 @@ class RoverMakerController: UIViewController {
                 } else if dataSource.segmentedControlIndex == 2 {
                     pageViewController.photos = dataSource.spiritImages!
                 }
-               // pageViewController.photos = dataSource.images
                 pageViewController.indexOfCurrentPhoto = indexPath.row
             }
         }

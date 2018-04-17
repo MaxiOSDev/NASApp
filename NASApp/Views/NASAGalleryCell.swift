@@ -9,22 +9,6 @@
 import UIKit
 import Nuke
 
-struct GalleryCellViewModel {
-    let galleryImage: UIImage
-    let label: String
-    let detailLabel: String
-}
-
-extension GalleryCellViewModel {
-
-    init(link: NASAGalleryLinks, gallery: NASAGallery, data: NASAGalleryData) {
-        self.galleryImage = gallery.galleryState == .downloaded ? gallery.image! : #imageLiteral(resourceName: "nasaLogo")
-        
-        self.label = data.title ?? ""
-        self.detailLabel = data.secondaryCreator ?? ""
-    }
-}
-
 class NASAGalleryCell: UICollectionViewCell {
     
     @IBOutlet weak var galleryImageView: UIImageView!
@@ -33,15 +17,7 @@ class NASAGalleryCell: UICollectionViewCell {
     
     @IBOutlet weak var planetLogoImageView: UIImageView!
     @IBOutlet weak var nasaGalleriesLabel: UILabel!
-    
-    var images: NASAGallery?
-    
-    func configure(with viewModel: GalleryCellViewModel) {
-        
-        imageNameLabel.text = viewModel.label
-        imageDetailLabel.text = viewModel.detailLabel
-        
-    }
+
 }
 
 

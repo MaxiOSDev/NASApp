@@ -24,7 +24,6 @@ class LocationAnnotatonView: UIView {
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
             
-            
             if let locationName = placeMark.name {
                 print(locationName)
                 self.locationNameLabel.text = "LocationNameLabel"

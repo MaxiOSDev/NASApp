@@ -20,8 +20,6 @@ class RoverViewerController: UIViewController {
         // Do any additional setup after loading the view.
         let request = Request(url: URL(string: (photo?.imgSrc)!)!)
         nukeManager.loadImage(with: request, into: imageView)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,20 +28,12 @@ class RoverViewerController: UIViewController {
     }
     
     @IBAction func tappedImageView(_ sender: UITapGestureRecognizer) {
-        print("Tapped Before")
         guard let storyboard = storyboard else { return }
-        print("Tapped After")
-        
+
         let zoomController = storyboard.instantiateViewController(withIdentifier: String(describing: RoverZoomController.self)) as! RoverZoomController
         zoomController.modalTransitionStyle = .crossDissolve
         zoomController.photo = photo
         
         self.present(zoomController, animated: true, completion: nil)
     }
-    
-     func addTapped() {
-        print("Worked")
-    }
-
-    
 }

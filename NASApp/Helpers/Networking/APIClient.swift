@@ -21,21 +21,16 @@ class NASAClient: APIClientProtocol {
     
     func parseCollection(from galleryFeedType: NASADetail, completion: @escaping (Result<NASAGalleryCollection?, APIError>) -> Void) {
         let endpoint = galleryFeedType
-      //  print("Endpoint: \(endpoint.path) query Items: \(endpoint.queryItems)")
         let request = endpoint.request
-     //  print("Request: \(request)")
-       // DispatchQueue.main.async {
+        DispatchQueue.main.async {
             self.fetch(with: request, decode: { (json) -> NASAGalleryCollection? in
-        //        print("JSON \(json)")
                 guard let galleryFeedResult = json as? NASAGalleryCollection else {
                     return nil
                 }
-                
-            //    print(galleryFeedResult)
-                
+
                 return galleryFeedResult
             }, completion: completion)
-     //   }
+        }
     }
     
     func parsePagedCollectionWithPageNumber(_ number: Int, completion: @escaping (Result<NASAGalleryCollection?, APIError>) -> Void) {
@@ -43,7 +38,6 @@ class NASAClient: APIClientProtocol {
         let request = URLRequest(url: url!)
         DispatchQueue.main.async {
             self.fetch(with: request, decode: { (json) -> NASAGalleryCollection? in
-         //       print("JSON \(json)")
                 guard let galleryFeedResult = json as? NASAGalleryCollection else {
                     return nil
                 }
@@ -55,23 +49,10 @@ class NASAClient: APIClientProtocol {
     
     func parseRoverCollection(from feedType: NASADetail, completion: @escaping (Result<Welcome?, APIError>) -> Void) {
         let endpoint = feedType
-      //  print("Endpoint: \(endpoint.roverPath) queryItems: \(endpoint.roverQueryItems)")
         let request = endpoint.roverRequest
-       // print("Rover Request: \(request)")
         DispatchQueue.main.async {
             self.fetch(with: request, decode: { (json) -> Welcome? in
                 guard let roverFeedResult = json as? Welcome else { return nil}
-                return roverFeedResult
-            }, completion: completion)
-        }
-    }
-    
-    func parsePagedRoverCollectionWithPageNumber(_ number: Int, completion: @escaping (Result<Welcome?, APIError>) -> Void) {
-        let url = URL(string: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&page=\(number)&api_key=FibfgEAUvuS0knr5woA5aNckz4QWk12iB5KHkBKr")
-        let request = URLRequest(url: url!)
-        DispatchQueue.main.async {
-            self.fetch(with: request, decode: { (json) -> Welcome? in
-                guard let roverFeedResult = json as? Welcome else { return nil }
                 return roverFeedResult
             }, completion: completion)
         }

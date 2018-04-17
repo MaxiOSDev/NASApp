@@ -91,7 +91,6 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
             dataManager.planet = "mercury"
             chosenPlanet = "Mercury"
         } else if sender.selectedSegmentIndex == 2 {
-            
             newVenus.position = position
             sceneView.scene.rootNode.addChildNode(newVenus)
             dataManager.planet = "venus"
@@ -140,28 +139,8 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
             chosenPlanet = "Pluto"
         }
     }
-    
-    @IBAction func getImages(_ sender: UIBarButtonItem) {
-        
-    }
-    
-    
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let touch = touches.first
-//        let location = touch?.location(in: sceneView)
-//
-//        let hitResults = sceneView.hitTest(location!, types: .featurePoint)
-//
-//        if let hitTestResult = hitResults.first {
-//            let transform = hitTestResult.worldTransform
-//            let position = SCNVector3(x: transform.columns.3.x, y: transform.columns.3.y, z: transform.columns.3.z)
-//
-//            let newEarth = EarthNode()
-//            newEarth.position = position
-//
-//            sceneView.scene.rootNode.addChildNode(newEarth)
-//        }
         
         let touch = touches.first!
         if let hit = sceneView.hitTest(touch.location(in: sceneView), options: nil).first {
@@ -273,14 +252,10 @@ extension ARPlanetController {
                                 let hrefString = String(describing: href.href)
                                 if hrefString.range(of: ".jpg") != nil {
                                     linkArray.append(link)
-                                    //      print("Yes \(href.href)\n")
-                                } else {
-                                    //      print("No \(href.href)\n")
                                 }
                             }
                         }
-                        
-                        print("Before chosen planet \(self.chosenPlanet)")
+
                         planetGalleryVC.chosenPlanet = self.chosenPlanet!
                         print(collectionResults.collection.items.count)
                         collectionResults.collection.items.removeAll()

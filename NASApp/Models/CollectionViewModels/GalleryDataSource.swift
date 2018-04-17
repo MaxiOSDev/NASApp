@@ -45,10 +45,8 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
             photos.append(URL(string: gallery.href!)!)
 
             for data in image.data {
-                print(data)
-             let viewModel = GalleryCellViewModel(link: image, gallery: gallery , data: data) //GalleryCellViewModel(image: image)
-                galleryCell.configure(with: viewModel)
-
+                galleryCell.imageNameLabel.text = data.title
+                galleryCell.imageDetailLabel.text = data.secondaryCreator
             }
         }
         
@@ -94,14 +92,6 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
         return CGSize(width: screenWidth/2, height: screenWidth/3)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      //  print("IndexPath in didSelect Item: \(indexPath.row)")
-
-        for (element, index) in links.enumerated() {
-      //      print("HERE: \(element), \(index.links)")
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == links.count - 2 {
             if let number = pageNumber {
@@ -116,9 +106,6 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
                                 let hrefString = String(describing: href.href)
                                 if hrefString.range(of: ".jpg") != nil {
                                     linkArray.append(link)
-                              //      print("Yes \(href.href)\n")
-                                } else {
-                              //      print("No \(href.href)\n")
                                 }
                             }
                         }
@@ -126,7 +113,6 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
                         for link in galleryResult.collection.links {
                             if link.prompt == "Next" {
                                 if let number = Int(link.href.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
-                                    // self.pageNumberDelegate?.getPageNumber(number)
                                     self.pageNumber = number
                                 }
                             }
@@ -147,7 +133,6 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
 extension GalleryDatasource: PageNumberDelegate {
     func getPageNumber(_ number: Int?) {
         pageNumber = number
-    //    print("Page Number from delegate: \(pageNumber)")
     }
 }
 

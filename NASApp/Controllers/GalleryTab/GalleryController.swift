@@ -13,7 +13,6 @@ class GalleryController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     weak var pageNumberDelegate: PageNumberDelegate?
     let client = NASAClient()
-   // var nasaGallery = [NASAGallery]()
     
     var galleryImage: NASAGalleryLinks? {
         
@@ -50,9 +49,6 @@ class GalleryController: UIViewController {
                         let hrefString = String(describing: href.href)
                         if hrefString.range(of: ".jpg") != nil {
                             linkArray.append(link)
-                      //      print("Yes \(href.href)\n")
-                        } else {
-                      //      print("No \(href.href)\n")
                         }
                     }
                 }

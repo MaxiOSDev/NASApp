@@ -18,20 +18,11 @@ extension GalleryEndpoint {
     var base: String {
         return "https://images-api.nasa.gov"
     }
-    
-//    var search: String {
-//        return "search"
-//    }
-    
-//    var center: String {
-//        return "center"
-//    }
-    
+
     var urlComponents: URLComponents {
         var components = URLComponents(string: base)!
         components.path = path
         components.queryItems = queryItems
-    //    print("Gallery Query Items \(queryItems)")
         return components
     }
     
@@ -63,9 +54,7 @@ extension NASADetail: GalleryEndpoint {
     var queryItems: [URLQueryItem] {
         var result = [URLQueryItem]()
         let center = URLQueryItem(name: "center", value: "jpl")
-        //let page = URLQueryItem(name: "page", value: "1")
         result.append(center)
-        //result.append(page)
         return result
     }
 }

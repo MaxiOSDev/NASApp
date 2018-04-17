@@ -37,7 +37,6 @@ class RoverZoomController: UIViewController, UIScrollViewDelegate {
     }
 
     @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
-        print("Tapped")
         dismiss(animated: true, completion: nil)
     }
     

@@ -17,7 +17,6 @@ class GalleryPageController: UIPageViewController {
         super.viewDidLoad()
         self.dataSource = self
         
-        print("PhotoLinks that were passed: \(photoLinks.count)")
         print("IndexPath: \(indexOfCurrentPhoto)")
         
         if let photoViewerController = photoViewerController(with: photoLinks[indexOfCurrentPhoto]) {

@@ -71,11 +71,10 @@ class LocationMapAnnotationView: MKAnnotationView {
 
             locationAnnotationView.locationNameLabel.text = EarthImageryData.sharedInstance.name!
             locationAnnotationView.locationAddressLabel.text = EarthImageryData.sharedInstance.address!
-           // locationAnnotationView.locationNameLabel.text = EarthImageryData.sharedInstance.date
-           // locationAnnotationView.locationAddressLabel.text = "Test2"
+
             let request = Request(url: URL(string: EarthImageryData.sharedInstance.url!)!)
             nukeManager.loadImage(with: request, into: locationAnnotationView.imageView)
-           // locationAnnotationView.imageView.image = #imageLiteral(resourceName: "nasaLogo")
+
             
             return locationAnnotationView
         }
