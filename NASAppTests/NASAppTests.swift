@@ -37,6 +37,8 @@ class NASAppTests: XCTestCase {
     
     }
     
+    
+    
     // Testing Parse of GalleryFeature
     func testGalleryJSONFetch() {
         fetchGalleryCollection()
@@ -342,7 +344,6 @@ class NASAppTests: XCTestCase {
             }
         }
     }
-    
 }
 
 
