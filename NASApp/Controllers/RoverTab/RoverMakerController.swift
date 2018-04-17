@@ -15,19 +15,11 @@ class RoverMakerController: UIViewController {
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
     let client = NASAClient()
     var roverImage = [Welcome]()
-   // weak var segmentedControlIndexDelegate: SegementIndexDelegate?
-//    var roverImage: [Welcome]? {
-//        didSet {
-//                dataSource.update(with: self.roverImage![0].photos, self.roverImage![1].photos, self.roverImage![2].photos)
-//                collectionView.reloadData()
-//        }
-//    }
     
     lazy var dataSource: RoverDataSource = {
        return RoverDataSource(images: [], collectionView: collectionView)
     }()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.segmentedControlIndex = 0
@@ -135,7 +127,6 @@ class RoverMakerController: UIViewController {
         dataSource.updateSpirit(with: spiritPhotos)
         collectionView.reloadData()
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRover" {

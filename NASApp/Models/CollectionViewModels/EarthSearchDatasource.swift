@@ -22,8 +22,7 @@ class EarthSearchDatasource: NSObject, UITableViewDataSource, UITableViewDelegat
     var searchMode: Bool? = false
     var imageryManager = EarthImageryData.sharedInstance
     var client = NASAClient()
-    
-    
+
     init(tableView: UITableView, searchController: UISearchController, mapView: MKMapView, container: UIView?) {
         self.tableView = tableView
         self.searchController = searchController
@@ -147,6 +146,10 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
                 case .success(let imageryResults):
                     guard let imageryResult = imageryResults else { return }
                     self.imageryManager.date = imageryResult.date
+                    print("Imagery Date: \(imageryResult.date)")
+                    print("Imagery URL: \(imageryResult.url)")
+                    print("Imagery Name: \(item.name)")
+                    print("Imagery address: \(self.parseAddress(selectedItem: item))")
                     self.imageryManager.url = imageryResult.url
                     self.imageryManager.name = item.name
                     self.imageryManager.address = self.parseAddress(selectedItem: item)
