@@ -52,11 +52,8 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         alertController.addAction(action)
         let newEarth = EarthNode()
         let position = SCNVector3(0, 0, -0.9)
-        newEarth.position = position
-        sceneView.scene.rootNode.addChildNode(newEarth)
+        addPlanetWith(position: position, node: newEarth, planet: Planet.earth, chosenPlanet: ChosenPlanet.earth)
         segmentedControl.selectedSegmentIndex = 3
-        dataManager.planet = "earth"
-        chosenPlanet = "Earth"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +72,7 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
+    
     @IBAction func planetChosen(_ sender: UISegmentedControl) {
         let position = SCNVector3(0, 0, -0.9)
 
@@ -83,65 +81,29 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         }
         
         if sender.selectedSegmentIndex == 0 {
-            newSun.position = position
-            sceneView.scene.rootNode.addChildNode(newSun)
-            dataManager.planet = "sun"
-            chosenPlanet = "Sun"
+            addPlanetWith(position: position, node: newSun, planet: Planet.sun, chosenPlanet: ChosenPlanet.sun)
         } else if sender.selectedSegmentIndex == 1 {
-            
-            newMercury.position = position
-            sceneView.scene.rootNode.addChildNode(newMercury)
-            dataManager.planet = "mercury"
-            chosenPlanet = "Mercury"
+
+            addPlanetWith(position: position, node: newMercury, planet: Planet.mercury, chosenPlanet: ChosenPlanet.mercury)
         } else if sender.selectedSegmentIndex == 2 {
-            newVenus.position = position
-            sceneView.scene.rootNode.addChildNode(newVenus)
-            dataManager.planet = "venus"
-            chosenPlanet = "Venus"
+            addPlanetWith(position: position, node: newVenus, planet: Planet.venus, chosenPlanet: ChosenPlanet.venus)
         } else if sender.selectedSegmentIndex == 3 {
-            
-            newEarth.position = position
-            sceneView.scene.rootNode.addChildNode(newEarth)
-            dataManager.planet = "earth"
-            chosenPlanet = "Earth"
+            addPlanetWith(position: position, node: newEarth, planet: Planet.earth, chosenPlanet: ChosenPlanet.earth)
         } else if sender.selectedSegmentIndex == 4 {
-            
-            newMars.position = position
-            sceneView.scene.rootNode.addChildNode(newMars)
-            dataManager.planet = "mars"
-            chosenPlanet = "Mars"
+            addPlanetWith(position: position, node: newMars, planet: Planet.mars, chosenPlanet: ChosenPlanet.mars)
         } else if sender.selectedSegmentIndex == 5 {
-            
-            newJupitar.position = position
-            sceneView.scene.rootNode.addChildNode(newJupitar)
-            dataManager.planet = "jupiter"
-            chosenPlanet = "Jupiter"
+            addPlanetWith(position: position, node: newJupitar, planet: Planet.jupiter, chosenPlanet: ChosenPlanet.jupiter)
         } else if sender.selectedSegmentIndex == 6 {
-            
-            newSaturn.position = position
-            sceneView.scene.rootNode.addChildNode(newSaturn)
-            dataManager.planet = "saturn"
-            chosenPlanet = "Saturn"
+            addPlanetWith(position: position, node: newSaturn, planet: Planet.saturn, chosenPlanet: ChosenPlanet.saturn)
         } else if sender.selectedSegmentIndex == 7 {
-            
-            newUranus.position = position
-            sceneView.scene.rootNode.addChildNode(newUranus)
-            dataManager.planet = "uranus"
-            chosenPlanet = "Uranus"
+            addPlanetWith(position: position, node: newUranus, planet: Planet.uranus, chosenPlanet: ChosenPlanet.uranus)
         } else if sender.selectedSegmentIndex == 8 {
-            
-            newNeptune.position = position
-            sceneView.scene.rootNode.addChildNode(newNeptune)
-            dataManager.planet = "neptune"
-            chosenPlanet = "Neptune"
+            addPlanetWith(position: position, node: newNeptune, planet: Planet.neptune, chosenPlanet: ChosenPlanet.neptune)
         } else if sender.selectedSegmentIndex == 9 {
-            
-            newPluto.position = position
-            sceneView.scene.rootNode.addChildNode(newPluto)
-            dataManager.planet = "pluto"
-            chosenPlanet = "Pluto"
+            addPlanetWith(position: position, node: newPluto, planet: Planet.pluto, chosenPlanet: ChosenPlanet.pluto)
         }
     }
+
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -170,6 +132,8 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
             }
         }
     }
+    
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
@@ -239,6 +203,14 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    // Helper
+    func addPlanetWith(position: SCNVector3, node: PlanetNode, planet: Planet, chosenPlanet: ChosenPlanet) {
+        node.position = position
+        sceneView.scene.rootNode.addChildNode(node)
+        dataManager.planet = planet.rawValue
+        self.chosenPlanet = chosenPlanet.rawValue
+    }
 }
 
 extension ARPlanetController {
@@ -270,8 +242,8 @@ extension ARPlanetController {
                         planetGalleryVC.collectionView?.reloadData()
                     case .failure(let error):
                         
-                        alertController.title = "Encountered Error: \(error.localizedDescription)"
-                        alertController.presentInOwnWindow(animated: true, completion: nil)
+                        self.alertController.title = "Encountered Error: \(error.localizedDescription)"
+                        self.alertController.presentInOwnWindow(animated: true, completion: nil)
                     }
                 }
             }

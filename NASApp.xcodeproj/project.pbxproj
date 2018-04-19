@@ -56,6 +56,7 @@
 		FBD98057206D290B00890F24 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98056206D290B00890F24 /* APIError.swift */; };
 		FBD9805A206D317D00890F24 /* GalleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98059206D317D00890F24 /* GalleryDataSource.swift */; };
 		FBF87EEB2088C0C20056BAFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF87EEA2088C0C20056BAFE /* Extensions.swift */; };
+		FBF87EED2088D0DE0056BAFE /* PlanetEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF87EEC2088D0DE0056BAFE /* PlanetEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		FBD98056206D290B00890F24 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		FBD98059206D317D00890F24 /* GalleryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataSource.swift; sourceTree = "<group>"; };
 		FBF87EEA2088C0C20056BAFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FBF87EEC2088D0DE0056BAFE /* PlanetEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8E67A8207F9E1D0014DA12 /* PlanetNode.swift */,
+				FBF87EEC2088D0DE0056BAFE /* PlanetEnums.swift */,
 			);
 			path = SceneKitModels;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				FBD98057206D290B00890F24 /* APIError.swift in Sources */,
 				FB2B4919206D81AE0037AD8C /* APIClient.swift in Sources */,
 				FB1323252076B4EB00437665 /* EditImageController.swift in Sources */,
+				FBF87EED2088D0DE0056BAFE /* PlanetEnums.swift in Sources */,
 				FB13231F2076735600437665 /* RoverPageController.swift in Sources */,
 				FBD9804D206D276400890F24 /* NASAGalleryCell.swift in Sources */,
 				FB4C81C92072976D00A94D73 /* GalleryZoomController.swift in Sources */,

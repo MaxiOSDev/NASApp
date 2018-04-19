@@ -66,8 +66,8 @@ class RoverMakerController: UIViewController {
                 self.passCuriosityData()
             case .failure(let error):
                 
-                alertController.title = "Encountered Error: \(error.localizedDescription)"
-                present(alertController, animated: true, completion: nil)
+                self.alertController.title = "Encountered Error: \(error.localizedDescription)"
+                self.present(self.alertController, animated: true, completion: nil)
             }
         }
     }
@@ -82,8 +82,8 @@ class RoverMakerController: UIViewController {
                 
             case .failure(let error):
                 
-                alertController.title = "Encountered Error: \(error.localizedDescription)"
-                present(alertController, animated: true, completion: nil)
+                self.alertController.title = "Encountered Error: \(error.localizedDescription)"
+                self.present(self.alertController, animated: true, completion: nil)
             }
         }
     }
@@ -97,8 +97,8 @@ class RoverMakerController: UIViewController {
                 self.passSpiritData()
             case .failure(let error):
                 
-                alertController.title = "Encountered Error: \(error.localizedDescription)"
-                present(alertController, animated: true, completion: nil)
+                self.alertController.title = "Encountered Error: \(error.localizedDescription)"
+                self.present(self.alertController, animated: true, completion: nil)
             }
         }
     }
