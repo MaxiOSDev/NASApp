@@ -33,7 +33,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return links.count //images.count
+        return links.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -122,6 +122,10 @@ extension GalleryDatasource: UICollectionViewDelegate, UICollectionViewDelegateF
                         collectionView.reloadData()
                     case .failure(let error):
                         print("Encountered error: \(error)")
+                        let alertController = UIAlertController(title: "Encountered Error: \(error.localizedDescription)", message: "Please wait and try again", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                        alertController.addAction(action)
+                        alertController.presentInOwnWindow(animated: true, completion: nil)
                     }
                 }
             }
@@ -136,15 +140,7 @@ extension GalleryDatasource: PageNumberDelegate {
     }
 }
 
-extension Array where Element: Equatable {
-    func removingDuplicates() -> Array {
-        return reduce(into: []) { result, element in
-            if !result.contains(element) {
-                result.append(element)
-            }
-        }
-    }
-}
+
 
 
 

@@ -26,7 +26,6 @@ extension GalleryEndpoint {
         return components
     }
     
-    
     var request: URLRequest {
         let url = urlComponents.url!
         print("URL within GalleryEndpoint: \(url)")

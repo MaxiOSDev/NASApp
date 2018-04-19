@@ -55,6 +55,7 @@
 		FBD98055206D28E700890F24 /* JSONDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98054206D28E700890F24 /* JSONDownloader.swift */; };
 		FBD98057206D290B00890F24 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98056206D290B00890F24 /* APIError.swift */; };
 		FBD9805A206D317D00890F24 /* GalleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD98059206D317D00890F24 /* GalleryDataSource.swift */; };
+		FBF87EEB2088C0C20056BAFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF87EEA2088C0C20056BAFE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		FBD98054206D28E700890F24 /* JSONDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDownloader.swift; sourceTree = "<group>"; };
 		FBD98056206D290B00890F24 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		FBD98059206D317D00890F24 /* GalleryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataSource.swift; sourceTree = "<group>"; };
+		FBF87EEA2088C0C20056BAFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +332,7 @@
 		FBD98052206D28C200890F24 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FBF87EE92088C0970056BAFE /* Extensions */,
 				FBD4B6002072660800F9282F /* Delegates */,
 				FBD98053206D28C700890F24 /* Networking */,
 			);
@@ -355,6 +358,14 @@
 				FB132359207BF13300437665 /* EarthSearchDatasource.swift */,
 			);
 			path = CollectionViewModels;
+			sourceTree = "<group>";
+		};
+		FBF87EE92088C0970056BAFE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FBF87EEA2088C0C20056BAFE /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FF39DB8B76811A55C107C698 /* Pods */ = {
@@ -602,6 +613,7 @@
 				FBD98022206D1A8E00890F24 /* ARPlanetController.swift in Sources */,
 				FBD4B6022072661F00F9282F /* Delegates.swift in Sources */,
 				FB1323212076838E00437665 /* RoverViewerController.swift in Sources */,
+				FBF87EEB2088C0C20056BAFE /* Extensions.swift in Sources */,
 				FB8E67A1207D33250014DA12 /* LocationAnnotatonView.swift in Sources */,
 				FBB242BB2080F66800A072FD /* PlanetGalleryEndpoint.swift in Sources */,
 				FBD98057206D290B00890F24 /* APIError.swift in Sources */,

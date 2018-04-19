@@ -15,13 +15,15 @@ class RoverMakerController: UIViewController {
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
     let client = NASAClient()
     var roverImage = [Welcome]()
-    
+    var alertController = UIAlertController(title: "Something went wrong", message: "Please wait and try again", preferredStyle: .alert)
+    let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
     lazy var dataSource: RoverDataSource = {
        return RoverDataSource(images: [], collectionView: collectionView)
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        alertController.addAction(action)
         dataSource.segmentedControlIndex = 0
         curiosityParse()
         roverSegmentedControl.selectedSegmentIndex = 0
@@ -63,7 +65,9 @@ class RoverMakerController: UIViewController {
                 self.roverImage.append(collectionResult!)
                 self.passCuriosityData()
             case .failure(let error):
-                print("Error for results data \(error)")
+                
+                alertController.title = "Encountered Error: \(error.localizedDescription)"
+                present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -77,7 +81,9 @@ class RoverMakerController: UIViewController {
                self.passOpportunityData()
                 
             case .failure(let error):
-                print("Error for results data \(error)")
+                
+                alertController.title = "Encountered Error: \(error.localizedDescription)"
+                present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -90,7 +96,9 @@ class RoverMakerController: UIViewController {
                 self.roverImage.append(collectionResult!) //collectionResults
                 self.passSpiritData()
             case .failure(let error):
-                print("Error for results data \(error)")
+                
+                alertController.title = "Encountered Error: \(error.localizedDescription)"
+                present(alertController, animated: true, completion: nil)
             }
         }
     }

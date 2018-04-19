@@ -148,6 +148,10 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
                     self.imageryManager.address = self.parseAddress(selectedItem: item)
                 case .failure(let error):
                     print("Imagery Datasource Clinet Error: \(error)")
+                    let alertController = UIAlertController(title: "Encountered Error: \(error.localizedDescription)", message: "Please wait and try again", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                    alertController.addAction(action)
+                    alertController.presentInOwnWindow(animated: true, completion: nil)
                 }
             }
         }

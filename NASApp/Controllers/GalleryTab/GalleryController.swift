@@ -67,6 +67,10 @@ class GalleryController: UIViewController {
                 self.collectionView.reloadData()
             case .failure(let error):
                 print("Error for results data \(error)")
+                let alertController = UIAlertController(title: "Encountered Error: \(error.localizedDescription)", message: "Please wait and try again", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                alertController.addAction(action)
+                present(alertController, animated: true, completion: nil)
             }
         }
         collectionView.dataSource = dataSource

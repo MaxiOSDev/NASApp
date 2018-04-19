@@ -34,7 +34,7 @@ class EyeInSkyController: UIViewController, MapViewDelegate {
         searchController.searchResultsUpdater = dataSource
         searchController.delegate = dataSource
         self.navigationItem.titleView = searchController.searchBar
-        //tableView.tableHeaderView = searchController.searchBar
+        
         
         definesPresentationContext = true
         dataSource.mapViewDelegate = self

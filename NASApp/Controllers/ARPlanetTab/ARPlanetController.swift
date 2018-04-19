@@ -32,6 +32,8 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
     let client = NASAClient()
     let dataManager = PlanetGalleryData.sharedInstance
     var chosenPlanet: String?
+    var alertController = UIAlertController(title: "Something went wrong", message: "Please wait and try again", preferredStyle: .alert)
+    let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +49,7 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
+        alertController.addAction(action)
         let newEarth = EarthNode()
         let position = SCNVector3(0, 0, -0.9)
         newEarth.position = position
@@ -222,12 +225,14 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
-        
+        alertController.title = "Encountered Error: \(error.localizedDescription)"
+        present(alertController, animated: true, completion: nil)
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+        alertController.title = "Session Interrupted"
+        present(alertController, animated: true, completion: nil)
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
@@ -264,7 +269,9 @@ extension ARPlanetController {
                         print(collectionResults.collection.items.count)
                         planetGalleryVC.collectionView?.reloadData()
                     case .failure(let error):
-                        print("Error in AR Planet Controller Client: \(error)")
+                        
+                        alertController.title = "Encountered Error: \(error.localizedDescription)"
+                        alertController.presentInOwnWindow(animated: true, completion: nil)
                     }
                 }
             }
