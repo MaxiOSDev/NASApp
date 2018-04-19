@@ -133,41 +133,29 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let touchPoint = touch.location(in: sceneView)
         if segmentedControl.selectedSegmentIndex == 0 {
-            let zDepth = sceneView.projectPoint(newSun.position).z
-            newSun.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newSun, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 1 {
-            let zDepth = sceneView.projectPoint(newMercury.position).z
-            newMercury.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newMercury, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 2 {
-            let zDepth = sceneView.projectPoint(newVenus.position).z
-            newVenus.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newVenus, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 3 {
-            let zDepth = sceneView.projectPoint(newEarth.position).z
-            newEarth.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newEarth, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 4 {
-            let zDepth = sceneView.projectPoint(newMars.position).z
-            newMars.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newMars, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 5 {
-            let zDepth = sceneView.projectPoint(newJupitar.position).z
-            newJupitar.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newJupitar, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 6 {
-            let zDepth = sceneView.projectPoint(newSaturn.position).z
-            newSaturn.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newSaturn, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 7 {
-            let zDepth = sceneView.projectPoint(newUranus.position).z
-            newUranus.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newUranus, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 8 {
-            let zDepth = sceneView.projectPoint(newNeptune.position).z
-            newNeptune.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newNeptune, withPoint: touchPoint)
         } else if segmentedControl.selectedSegmentIndex == 9 {
-            let zDepth = sceneView.projectPoint(newPluto.position).z
-            newPluto.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
+            touchesMovedFor(node: newPluto, withPoint: touchPoint)
         }
     }
     
@@ -204,12 +192,17 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    // Helper
+    // Helpers
     func addPlanetWith(position: SCNVector3, node: PlanetNode, planet: Planet, chosenPlanet: ChosenPlanet) {
         node.position = position
         sceneView.scene.rootNode.addChildNode(node)
         dataManager.planet = planet.rawValue
         self.chosenPlanet = chosenPlanet.rawValue
+    }
+    
+    func touchesMovedFor(node: PlanetNode, withPoint touchPoint: CGPoint) {
+        let zDepth = sceneView.projectPoint(node.position).z
+        node.position = sceneView.unprojectPoint(SCNVector3(x: Float(touchPoint.x), y: Float(touchPoint.y), z: zDepth))
     }
 }
 
