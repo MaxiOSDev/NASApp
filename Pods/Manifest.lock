@@ -1,0 +1,24 @@
+PODS:
+  - JLStickerTextView (0.1.2)
+  - Nuke (6.1.1)
+
+DEPENDENCIES:
+  - JLStickerTextView (from `https://github.com/luiyezheng/JLStickerTextView.git`)
+  - Nuke (~> 6.0)
+
+EXTERNAL SOURCES:
+  JLStickerTextView:
+    :git: https://github.com/luiyezheng/JLStickerTextView.git
+
+CHECKOUT OPTIONS:
+  JLStickerTextView:
+    :commit: a037b5ae054de396278cd052263402ef52b5d1c7
+    :git: https://github.com/luiyezheng/JLStickerTextView.git
+
+SPEC CHECKSUMS:
+  JLStickerTextView: 99158380c95dc5455568892beb81d0529f3a547d
+  Nuke: bf5d58b2d95ff15cb170c231fe6002d706be77e1
+
+PODFILE CHECKSUM: 818e2a57e3560d17179ba21ae874c72f16ef8970
+
+COCOAPODS: 1.4.0
